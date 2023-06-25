@@ -33,3 +33,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Panda css
+styled-system
+
+# Storybook
+/src/stories

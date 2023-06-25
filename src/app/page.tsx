@@ -1,95 +1,125 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+'use client'
+
+import { Button } from '@/components/Button'
+import { css } from '@/styled-system/css'
+import { Dialog, DialogRoot } from '@/components/Modals/Modal'
+import { DialogTrigger } from '@radix-ui/react-dialog'
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <>
+      <header className={css({ p: '8', bg: 'purple.300' })}>
+        <p className={css({ w: '160px', ml: 'auto' })}>This is a header</p>
+      </header>
+      <div className={css({ p: '8' })}>
+        <DialogRoot>
+          <DialogTrigger asChild>
+            <Button intent="primary" size="md">
+              Open modal
+            </Button>
+          </DialogTrigger>
+          <Dialog
+            title="Hello Panda"
+            description="This is a modal built with Radix and pandacss"
           >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem
+              aut eaque vitae provident, quidem earum veritatis ab ad voluptas
+              aliquam cumque architecto rerum, blanditiis magnam laborum
+              temporibus esse dolore reprehenderit! Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. Veritatis qui delectus eius
+              inventore, non maiores maxime error placeat neque ex optio?
+              Laboriosam assumenda, iusto consequatur iure temporibus odio eaque
+              exercitationem? Lorem, ipsum dolor sit amet consectetur
+              adipisicing elit. Voluptatibus laboriosam minus cum. Architecto,
+              autem ratione quod ab delectus ducimus. Omnis, ullam iure optio
+              laudantium sapiente dicta aspernatur culpa dolores odit! Lorem
+              ipsum dolor sit, amet consectetur adipisicing elit. Quis, natus
+              porro! Perspiciatis cum est deserunt et sapiente modi aperiam at
+              architecto repudiandae! Molestias, excepturi? Repellendus veniam
+              eveniet vitae perspiciatis culpa!
+            </p>
+
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem
+              aut eaque vitae provident, quidem earum veritatis ab ad voluptas
+              aliquam cumque architecto rerum, blanditiis magnam laborum
+              temporibus esse dolore reprehenderit! Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. Veritatis qui delectus eius
+              inventore, non maiores maxime error placeat neque ex optio?
+              Laboriosam assumenda, iusto consequatur iure temporibus odio eaque
+              exercitationem? Lorem, ipsum dolor sit amet consectetur
+              adipisicing elit. Voluptatibus laboriosam minus cum. Architecto,
+              autem ratione quod ab delectus ducimus. Omnis, ullam iure optio
+              laudantium sapiente dicta aspernatur culpa dolores odit! Lorem
+              ipsum dolor sit, amet consectetur adipisicing elit. Quis, natus
+              porro! Perspiciatis cum est deserunt et sapiente modi aperiam at
+              architecto repudiandae! Molestias, excepturi? Repellendus veniam
+              eveniet vitae perspiciatis culpa!
+            </p>
+          </Dialog>
+        </DialogRoot>
+        <div
+          className={css({
+            maxW: '800px',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '8',
+          })}
+        >
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem
+            aut eaque vitae provident, quidem earum veritatis ab ad voluptas
+            aliquam cumque architecto rerum, blanditiis magnam laborum
+            temporibus esse dolore reprehenderit! Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Veritatis qui delectus eius inventore,
+            non maiores maxime error placeat neque ex optio? Laboriosam
+            assumenda, iusto consequatur iure temporibus odio eaque
+            exercitationem? Lorem, ipsum dolor sit amet consectetur adipisicing
+            elit. Voluptatibus laboriosam minus cum. Architecto, autem ratione
+            quod ab delectus ducimus. Omnis, ullam iure optio laudantium
+            sapiente dicta aspernatur culpa dolores odit! Lorem ipsum dolor sit,
+            amet consectetur adipisicing elit. Quis, natus porro! Perspiciatis
+            cum est deserunt et sapiente modi aperiam at architecto repudiandae!
+            Molestias, excepturi? Repellendus veniam eveniet vitae perspiciatis
+            culpa!
+          </p>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem
+            aut eaque vitae provident, quidem earum veritatis ab ad voluptas
+            aliquam cumque architecto rerum, blanditiis magnam laborum
+            temporibus esse dolore reprehenderit! Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Veritatis qui delectus eius inventore,
+            non maiores maxime error placeat neque ex optio? Laboriosam
+            assumenda, iusto consequatur iure temporibus odio eaque
+            exercitationem? Lorem, ipsum dolor sit amet consectetur adipisicing
+            elit. Voluptatibus laboriosam minus cum. Architecto, autem ratione
+            quod ab delectus ducimus. Omnis, ullam iure optio laudantium
+            sapiente dicta aspernatur culpa dolores odit! Lorem ipsum dolor sit,
+            amet consectetur adipisicing elit. Quis, natus porro! Perspiciatis
+            cum est deserunt et sapiente modi aperiam at architecto repudiandae!
+            Molestias, excepturi? Repellendus veniam eveniet vitae perspiciatis
+            culpa!
+          </p>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem
+            aut eaque vitae provident, quidem earum veritatis ab ad voluptas
+            aliquam cumque architecto rerum, blanditiis magnam laborum
+            temporibus esse dolore reprehenderit! Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Veritatis qui delectus eius inventore,
+            non maiores maxime error placeat neque ex optio? Laboriosam
+            assumenda, iusto consequatur iure temporibus odio eaque
+            exercitationem? Lorem, ipsum dolor sit amet consectetur adipisicing
+            elit. Voluptatibus laboriosam minus cum. Architecto, autem ratione
+            quod ab delectus ducimus. Omnis, ullam iure optio laudantium
+            sapiente dicta aspernatur culpa dolores odit! Lorem ipsum dolor sit,
+            amet consectetur adipisicing elit. Quis, natus porro! Perspiciatis
+            cum est deserunt et sapiente modi aperiam at architecto repudiandae!
+            Molestias, excepturi? Repellendus veniam eveniet vitae perspiciatis
+            culpa!
+          </p>
         </div>
       </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    </>
   )
 }
