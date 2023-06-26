@@ -40,7 +40,9 @@ export const Accordion = ({ items, ...props }: AccordionProps) => {
               {item.title}
             </AccordionTrigger>
           </AccordionHeader>
-          <AccordionContent>{item.content}</AccordionContent>
+          <AccordionContent>
+            <div>{item.content}</div>
+          </AccordionContent>
         </AccordionItem>
       ))}
     </AccordionRoot>

@@ -140,24 +140,20 @@ export default defineConfig({
           '0%': {
             height: '0px',
             maxHeight: '0px',
-            padding: '0px 16px',
           },
           '100%': {
             height: 'var(--radix-accordion-content-height)',
             maxHeight: 'var(--radix-accordion-content-height)',
-            padding: '16px',
           },
         },
         accordionSlideUp: {
           '0%': {
             height: 'var(--radix-accordion-content-height)',
             maxHeight: 'var(--radix-accordion-content-height)',
-            padding: '16px',
           },
           '100%': {
             height: '0px',
             maxHeight: '0px',
-            padding: '0px 16px',
           },
         },
       },

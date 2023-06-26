@@ -64,8 +64,11 @@ export const accordionContentRecipe = defineRecipe({
   base: {
     color: 'gray.800',
     backgroundColor: 'gray.200',
-    p: '4',
     overflow: 'hidden',
+
+    '> div': {
+      p: '4',
+    },
 
     _dataOpen: {
       animation: 'accordionSlideDown',
