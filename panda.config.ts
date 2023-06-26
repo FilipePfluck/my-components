@@ -7,6 +7,12 @@ import {
 } from '@/components/Accordion/styles'
 import { buttonRecipe } from '@/components/Button/styles'
 import {
+  checkboxContainerRecipe,
+  checkboxIndicatorRecipe,
+  checkboxLabelRecipe,
+  checkboxRootRecipe,
+} from '@/components/Checkbox/styles'
+import {
   dialogCloseRecipe,
   dialogContentRecipe,
   dialogDescriptionRecipe,
@@ -81,6 +87,11 @@ export default defineConfig({
         accordionHeader: accordionHeaderRecipe,
         accordionTrigger: accordionTriggerRecipe,
         accordionContent: accordionContentRecipe,
+
+        checkboxRoot: checkboxRootRecipe,
+        checkboxIndicator: checkboxIndicatorRecipe,
+        checkboxLabel: checkboxLabelRecipe,
+        checkboxContainer: checkboxContainerRecipe,
       },
       tokens: {
         colors: {
