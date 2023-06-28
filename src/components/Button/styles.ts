@@ -19,23 +19,23 @@ export const buttonRecipe = defineRecipe({
     intent: {
       primary: {
         bg: {
-          base: 'purple.500',
+          base: 'purple.600',
           _hover: 'purple.700',
         },
         borderColor: {
-          base: 'purple.500',
-          _hover: 'puprle.600',
+          base: 'purple.600',
+          _hover: 'puprle.700',
         },
         color: 'gray.100',
       },
       secondary: {
         bg: {
           base: 'transparent',
-          _hover: 'purple.500',
+          _hover: 'purple.600',
         },
-        borderColor: 'purple.500',
+        borderColor: 'purple.600',
         color: {
-          base: 'purple.500',
+          base: 'purple.600',
           _hover: 'gray.100',
         },
       },

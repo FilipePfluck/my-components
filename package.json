@@ -16,6 +16,7 @@
     "@radix-ui/react-accordion": "^1.1.2",
     "@radix-ui/react-checkbox": "^1.0.4",
     "@radix-ui/react-dialog": "^1.0.4",
+    "@radix-ui/react-dropdown-menu": "^2.0.5",
     "@testing-library/user-event": "^14.4.3",
     "next": "13.4.7",
     "react": "18.2.0",
@@ -25,6 +26,7 @@
   "devDependencies": {
     "@pandacss/dev": "^0.4.0",
     "@rocketseat/eslint-config": "^1.2.0",
+    "@storybook/addon-a11y": "^7.0.24",
     "@storybook/addon-essentials": "^7.0.23",
     "@storybook/addon-interactions": "^7.0.23",
     "@storybook/addon-links": "^7.0.23",

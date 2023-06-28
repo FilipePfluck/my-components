@@ -18,6 +18,16 @@ import {
   verticalScrollRecipe,
 } from '@/components/recipes'
 
+import {
+  dropdownArrowRecipe,
+  dropdownContentRecipe,
+  dropdownItemCheckedIndicatorRecipe,
+  dropdownItemRecipe,
+  dropdownLabelRecipe,
+  dropdownRightSlotRecipe,
+  dropdownSeparatorRecipe,
+} from '@/components/Dropdowns/Dropdown/styles'
+
 export const recipes = {
   button: buttonRecipe,
 
@@ -40,4 +50,12 @@ export const recipes = {
   checkboxIndicator: checkboxIndicatorRecipe,
   checkboxLabel: checkboxLabelRecipe,
   checkboxContainer: checkboxContainerRecipe,
+
+  dropdownContent: dropdownContentRecipe,
+  dropdownArrow: dropdownArrowRecipe,
+  dropdownItem: dropdownItemRecipe,
+  dropdownLabel: dropdownLabelRecipe,
+  dropdownSeparator: dropdownSeparatorRecipe,
+  dropdownItemCheckedIndicator: dropdownItemCheckedIndicatorRecipe,
+  dropdownRightSlot: dropdownRightSlotRecipe,
 }

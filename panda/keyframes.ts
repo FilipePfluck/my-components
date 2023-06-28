@@ -9,6 +9,8 @@ export const keyframes: CssKeyframes = {
     '0%': { opacity: '1' },
     '100%': { opacity: '0' },
   },
+
+  // modal
   openModal: {
     '0%': {
       opacity: '0',
@@ -29,6 +31,8 @@ export const keyframes: CssKeyframes = {
       transform: 'translate(-50%, -48%) scale(.96)',
     },
   },
+
+  // accordion
   accordionSlideDown: {
     '0%': {
       height: '0px',
@@ -48,5 +52,23 @@ export const keyframes: CssKeyframes = {
       height: '0px',
       maxHeight: '0px',
     },
+  },
+
+  // slide and fade
+  slideUpAndFade: {
+    '0%': { opacity: 0, transform: 'translateY(2px)' },
+    '100%': { opacity: 1, transform: 'translateY(0)' },
+  },
+  slideRightAndFade: {
+    '0%': { opacity: 0, transform: 'translateX(-2px)' },
+    '100%': { opacity: 1, transform: 'translateX(0)' },
+  },
+  slideDownAndFade: {
+    '0%': { opacity: 0, transform: 'translateY(-2px)' },
+    '100%': { opacity: 1, transform: 'translateY(0)' },
+  },
+  slideLeftAndFade: {
+    '0%': { opacity: 0, transform: 'translateX(2px)' },
+    '100%': { opacity: 1, transform: 'translateX(0)' },
   },
 }
