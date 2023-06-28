@@ -51,7 +51,7 @@ export const dropdownItemRecipe = defineRecipe({
     position: 'relative',
 
     _dataDisabled: {
-      color: 'gray.600',
+      color: 'gray.500',
       pointerEvents: 'none',
     },
 
@@ -74,11 +74,26 @@ export const dropdownItemRecipe = defineRecipe({
       none: {},
       md: { pl: '6' },
     },
+    alignment: {
+      center: {
+        justifyContent: 'center',
+      },
+      left: {
+        justifyContent: 'flex-start',
+      },
+    },
   },
   defaultVariants: {
     type: 'default',
+    paddingLeft: 'none',
+    alignment: 'left',
   },
-  jsx: ['DropdownItem', 'DropdownRadioItem', 'DropdownCheckboxItem'],
+  jsx: [
+    'DropdownItem',
+    'DropdownRadioItem',
+    'DropdownCheckboxItem',
+    'DropdownSubTrigger',
+  ],
 })
 
 export const dropdownLabelRecipe = defineRecipe({
@@ -96,22 +111,21 @@ export const dropdownSeparatorRecipe = defineRecipe({
   base: {
     h: '1px',
     m: '1',
-    bg: 'purple.400',
+    bg: 'purple.200',
   },
 })
 
 export const dropdownItemCheckedIndicatorRecipe = defineRecipe({
   name: 'dropdownItemCheckedIndicator',
-  description:
-    'The indicator shown next to the item, indicating that it is currently selected',
   base: {
-    position: 'absolute',
-    left: '0',
-    width: '6',
-    display: 'inline-flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+    position: 'absolute!',
+    left: '0px!',
   },
+  jsx: [
+    'DropdownItemCheckedIndicator',
+    'DropdownRadioItem',
+    'DropdownCheckboxItem',
+  ],
 })
 
 export const dropdownRightSlotRecipe = defineRecipe({

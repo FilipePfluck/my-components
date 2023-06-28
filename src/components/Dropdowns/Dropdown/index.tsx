@@ -25,7 +25,7 @@ export const Dropdown = ({ items, children, ...props }: DropdownProps) => {
     <Root {...props}>
       <Trigger asChild>{children}</Trigger>
       <Portal>
-        <DropdownContent sideOffset={8}>
+        <DropdownContent width="md" sideOffset={8}>
           {items.map((group, index) => {
             console.log(group.items)
             return (

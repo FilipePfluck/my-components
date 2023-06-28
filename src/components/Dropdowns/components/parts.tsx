@@ -27,6 +27,7 @@ export const DropdownCheckboxItem = styled(
   DropdownMenu.CheckboxItem,
   dropdownItem,
 )
+export const DropdownSubTrigger = styled(DropdownMenu.SubTrigger, dropdownItem)
 
 export const DropdownLabel = styled(DropdownMenu.Label, dropdownLabel)
 
