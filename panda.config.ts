@@ -7,6 +7,7 @@ export default defineConfig({
     './src/**/*.{js,jsx,ts,tsx}',
     './pages/**/*.{js,jsx,ts,tsx}',
     './stories/**/*.{js,jsx,ts,tsx}',
+    './.storybook/**/*.{js,jsx,ts,tsx}',
   ],
   exclude: [],
   jsxFramework: 'react',

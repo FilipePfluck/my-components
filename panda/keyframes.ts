@@ -55,20 +55,37 @@ export const keyframes: CssKeyframes = {
   },
 
   // slide and fade
-  slideUpAndFade: {
+  slideUpAndFadeIn: {
     '0%': { opacity: 0, transform: 'translateY(2px)' },
     '100%': { opacity: 1, transform: 'translateY(0)' },
   },
-  slideRightAndFade: {
+  slideRightAndFadeIn: {
     '0%': { opacity: 0, transform: 'translateX(-2px)' },
     '100%': { opacity: 1, transform: 'translateX(0)' },
   },
-  slideDownAndFade: {
+  slideDownAndFadeIn: {
     '0%': { opacity: 0, transform: 'translateY(-2px)' },
     '100%': { opacity: 1, transform: 'translateY(0)' },
   },
-  slideLeftAndFade: {
+  slideLeftAndFadeIn: {
     '0%': { opacity: 0, transform: 'translateX(2px)' },
     '100%': { opacity: 1, transform: 'translateX(0)' },
+  },
+
+  slideUpAndFadeOut: {
+    '0%': { opacity: 1, transform: 'translateY(0)' },
+    '100%': { opacity: 0, transform: 'translateY(2px)' },
+  },
+  slideRightAndFadeOut: {
+    '0%': { opacity: 1, transform: 'translateX(0)' },
+    '100%': { opacity: 0, transform: 'translateX(-2px)' },
+  },
+  slideDownAndFadeOut: {
+    '0%': { opacity: 1, transform: 'translateY(0)' },
+    '100%': { opacity: 0, transform: 'translateY(-2px)' },
+  },
+  slideLeftAndFadeOut: {
+    '0%': { opacity: 1, transform: 'translateX(0)' },
+    '100%': { opacity: 0, transform: 'translateX(2px)' },
   },
 }

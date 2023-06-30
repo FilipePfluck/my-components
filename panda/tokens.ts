@@ -21,17 +21,29 @@ export const tokens = {
     accordionSlideUp: {
       value: 'accordionSlideUp 0.2s',
     },
-    slideUpAndFade: {
-      value: 'slideUpAndFade 0.4s',
+    slideUpAndFadeIn: {
+      value: 'slideUpAndFadeIn 0.4s',
     },
-    slideRightAndFade: {
-      value: 'slideRightAndFade 0.4s',
+    slideRightAndFadeIn: {
+      value: 'slideRightAndFadeIn 0.4s',
     },
-    slideDownAndFade: {
-      value: 'slideDownAndFade 0.4s',
+    slideDownAndFadeIn: {
+      value: 'slideDownAndFadeIn 0.4s',
     },
-    slideLeftAndFade: {
-      value: 'slideLeftAndFade 0.4s',
+    slideLeftAndFadeIn: {
+      value: 'slideLeftAndFadeIn 0.4s',
+    },
+    slideUpAndFadeOut: {
+      value: 'slideUpAndFadeOut 0.2s',
+    },
+    slideRightAndFadeOut: {
+      value: 'slideRightAndFadeOut 0.2s',
+    },
+    slideDownAndFadeOut: {
+      value: 'slideDownAndFadeOut 0.2s',
+    },
+    slideLeftAndFadeOut: {
+      value: 'slideLeftAndFadeOut 0.2s',
     },
   },
 }

@@ -5,11 +5,10 @@ export const utilities = {
       shorthand: 'ring',
       transform(value: string) {
         return {
-          _focusVisible: {
+          '&:focus-visible': {
             outlineWidth: value,
             outlineStyle: 'solid',
-            outlineColor: 'blue.500',
-            outlineOffset: value,
+            outlineColor: 'token(colors.blue.500)',
           },
         }
       },

@@ -15,11 +15,7 @@ export const checkboxRootRecipe = defineRecipe({
     borderColor: 'gray.400',
     borderStyle: 'solid',
 
-    _focusVisible: {
-      outlineWidth: '2px',
-      outlineStyle: 'solid',
-      outlineColor: 'blue.500',
-    },
+    ring: '2px',
 
     _checked: {
       borderColor: 'purple.500',

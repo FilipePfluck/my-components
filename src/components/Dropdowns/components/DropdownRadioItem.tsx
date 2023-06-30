@@ -11,8 +11,6 @@ export interface DropdownItemProps extends DropdownMenuRadioItemProps {
   rightSlot?: string
 
   type?: 'default' | 'submenu'
-  paddingLeft?: 'none' | 'md'
-  alignment?: 'center' | 'left'
 }
 
 export const DropdownRadioItem = ({
@@ -21,7 +19,7 @@ export const DropdownRadioItem = ({
   ...props
 }: DropdownItemProps) => {
   return (
-    <RadioItem {...props}>
+    <RadioItem onSelect={(e) => e.preventDefault()} {...props}>
       <DropdownItemCheckedIndicator>•</DropdownItemCheckedIndicator>
       {itemLabel}
       {rightSlot && <DropdownRightSlot>{rightSlot}</DropdownRightSlot>}

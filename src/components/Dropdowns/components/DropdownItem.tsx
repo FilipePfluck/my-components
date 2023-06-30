@@ -7,8 +7,6 @@ export interface DropdownItemProps extends DropdownMenuItemProps {
   rightSlot?: string
 
   type?: 'default' | 'submenu'
-  paddingLeft?: 'none' | 'md'
-  alignment?: 'center' | 'left'
 }
 
 export const DropdownItem = ({

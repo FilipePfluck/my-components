@@ -3,15 +3,21 @@ import { defineRecipe } from '@pandacss/dev'
 export const dropdownContentRecipe = defineRecipe({
   name: 'dropdownContent',
   base: {
-    bg: 'gray.100',
+    bg: 'gray.50',
     rounded: 'md',
     p: '2',
     boxShadow: 'lg',
     _dataOpen: {
-      _top: { animation: 'slideDownAndFade' },
-      _right: { animation: 'slideLeftAndFade' },
-      _bottom: { animation: 'slideUpAndFade' },
-      _left: { animation: 'slideRightAndFade' },
+      _top: { animation: 'slideDownAndFadeIn' },
+      _right: { animation: 'slideLeftAndFadeIn' },
+      _bottom: { animation: 'slideUpAndFadeIn' },
+      _left: { animation: 'slideRightAndFadeIn' },
+    },
+    _dataClosed: {
+      _top: { animation: 'slideDownAndFadeOut' },
+      _right: { animation: 'slideLeftAndFadeOut' },
+      _bottom: { animation: 'slideUpAndFadeOut' },
+      _left: { animation: 'slideRightAndFadeOut' },
     },
   },
   variants: {
@@ -21,9 +27,18 @@ export const dropdownContentRecipe = defineRecipe({
       md: { minW: '48' },
       lg: { minW: '64' },
     },
+    itemPaddingLeft: {
+      none: {},
+      md: {
+        '.dropdownItem': {
+          pl: '6',
+        },
+      },
+    },
   },
   defaultVariants: {
     width: 'auto',
+    itemPaddingLeft: 'none',
   },
   jsx: ['DropdownContent', 'DropdownSubContent'],
 })
@@ -40,7 +55,7 @@ export const dropdownItemRecipe = defineRecipe({
   base: {
     all: 'unset',
     cursor: 'pointer',
-    fontSize: 'sm',
+    fontSize: 'xs',
     lineHeight: '100%',
     color: 'purple.600',
     rounded: 'sm',
@@ -49,6 +64,7 @@ export const dropdownItemRecipe = defineRecipe({
     height: '6',
     px: '1',
     position: 'relative',
+    transition: '0.125s',
 
     _dataDisabled: {
       color: 'gray.500',
@@ -65,28 +81,16 @@ export const dropdownItemRecipe = defineRecipe({
       default: {},
       submenu: {
         _dataOpen: {
-          bg: 'purple.100',
-          color: 'purple.600',
+          '&:not([data-highlighted])': {
+            bg: 'purple.100',
+            color: 'purple.600',
+          },
         },
-      },
-    },
-    paddingLeft: {
-      none: {},
-      md: { pl: '6' },
-    },
-    alignment: {
-      center: {
-        justifyContent: 'center',
-      },
-      left: {
-        justifyContent: 'flex-start',
       },
     },
   },
   defaultVariants: {
     type: 'default',
-    paddingLeft: 'none',
-    alignment: 'left',
   },
   jsx: [
     'DropdownItem',
@@ -133,12 +137,13 @@ export const dropdownRightSlotRecipe = defineRecipe({
   base: {
     ml: 'auto',
     pl: '5',
-    color: 'gray.800',
+    color: 'gray.700',
+    fontSize: 'xs',
 
-    '[data-highlighted] > &': {
+    '[data-highlighted] &': {
       color: 'gray.50',
     },
 
-    '[data-disabled] &': { color: 'gray.600' },
+    '[data-disabled] &': { color: 'gray.500' },
   },
 })

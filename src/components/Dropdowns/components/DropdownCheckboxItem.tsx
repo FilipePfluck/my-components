@@ -13,8 +13,6 @@ export interface DropdownItemProps extends DropdownMenuCheckboxItemProps {
   rightSlot?: string
 
   type?: 'default' | 'submenu'
-  paddingLeft?: 'none' | 'md'
-  alignment?: 'center' | 'left'
 }
 
 export const DropdownCheckboxItem = ({
@@ -23,7 +21,7 @@ export const DropdownCheckboxItem = ({
   ...props
 }: DropdownItemProps) => {
   return (
-    <CheckboxItem {...props}>
+    <CheckboxItem onSelect={(e) => e.preventDefault()} {...props}>
       <DropdownItemCheckedIndicator>
         <MdCheck />
       </DropdownItemCheckedIndicator>

@@ -25,12 +25,8 @@ export const verticalScrollRecipe = defineRecipe({
       backgroundClip: 'padding-box',
     },
 
-    _focusVisible: {
-      outlineWidth: '2px',
-      outlineStyle: 'solid',
-      outlineColor: 'blue.500',
-      outlineOffset: '4px',
-    },
+    ring: '2px',
+    outlineOffset: '4px',
   },
   variants: {
     size: {
