@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { render, screen, fireEvent } from '@testing-library/react'
 import { Accordion } from './index'
+import { axe } from 'vitest-axe'
 
 const data = [
   {
@@ -16,10 +17,14 @@ const data = [
 ]
 
 describe('Accordion component', () => {
-  render(<Accordion type="single" items={data} />)
+  const { container } = render(<Accordion type="single" items={data} />)
 
   it('renders the titles all the time', () => {
     expect(screen.getByText(/Is it accessible?/i)).toBeDefined()
+  })
+
+  it('has no detectable a11y violationd', async () => {
+    expect(await axe(container)).toHaveNoViolations()
   })
 
   it('should not show the content at the start', () => {

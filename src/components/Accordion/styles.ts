@@ -7,7 +7,6 @@ export const accordionRootRecipe = defineRecipe({
     width: '80',
     bg: 'gray.400',
     boxShadow: 'lg',
-    // overflow: 'hidden',
   },
 })
 
@@ -46,7 +45,7 @@ export const accordionTriggerRecipe = defineRecipe({
     all: 'unset',
     cursor: 'pointer',
     fontFamily: 'inherit',
-    bg: 'gray.100',
+    bg: 'gray.50',
     px: '4',
     h: '12',
     flex: 1,
@@ -63,7 +62,7 @@ export const accordionContentRecipe = defineRecipe({
   name: 'accordionContent',
   base: {
     color: 'gray.800',
-    backgroundColor: 'gray.200',
+    backgroundColor: 'gray.100',
     overflow: 'hidden',
 
     '> div': {
