@@ -11,5 +11,7 @@ export const conditions = {
     right: '&[data-side="right"]',
     bottom: '&[data-side="bottom"]',
     left: '&[data-side="left"]',
+
+    ariaInvalid: '&[aria-invalid]',
   },
 }

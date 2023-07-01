@@ -27,6 +27,12 @@ import {
   dropdownRightSlotRecipe,
   dropdownSeparatorRecipe,
 } from '@/components/Dropdowns/Dropdown/styles'
+import {
+  inputContainerRecipe,
+  inputIconButtonRecipe,
+  inputIconRecipe,
+  inputRecipe,
+} from '@/components/Input/styles'
 
 export const recipes = {
   button: buttonRecipe,
@@ -58,4 +64,9 @@ export const recipes = {
   dropdownSeparator: dropdownSeparatorRecipe,
   dropdownItemCheckedIndicator: dropdownItemCheckedIndicatorRecipe,
   dropdownRightSlot: dropdownRightSlotRecipe,
+
+  inputContainer: inputContainerRecipe,
+  inputElement: inputRecipe,
+  inputIcon: inputIconRecipe,
+  inputIconButton: inputIconButtonRecipe,
 }
