@@ -11,7 +11,7 @@ import {
   checkboxIndicatorRecipe,
   checkboxLabelRecipe,
   checkboxRootRecipe,
-} from '@/components/Checkbox/styles'
+} from '@/components/Forms/Checkbox/styles'
 import {
   dialogCloseRecipe,
   dialogContentRecipe,

@@ -7,6 +7,7 @@ export const inputContainerRecipe = defineRecipe({
     rounded: 'md',
     bg: 'gray.50',
     boxShadow: 'md',
+    transition: '0.2s',
 
     display: 'flex',
     alignItems: 'center',
@@ -50,9 +51,12 @@ export const inputIconRecipe = defineRecipe({
   name: 'inputIcon',
   base: {
     fontSize: 'md',
-    color: 'purple.300',
-    '.group:has(:disabled) &': {
-      color: 'gray.400',
+    transition: '0.2s',
+    color: {
+      base: 'purple.300',
+      '.group:has(:disabled) &': 'gray.400',
+      '.group:has([aria-invalid]) &': 'red.400',
+      '.group:has(:focus-within) &': 'purple.400',
     },
   },
 })

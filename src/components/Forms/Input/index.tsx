@@ -1,3 +1,4 @@
+import { useFormControl } from '@/hooks/useFormControl'
 import { styled } from '@/styled-system/jsx'
 import {
   inputContainer,
@@ -22,11 +23,21 @@ export const Input = ({
   rightElement,
   ...props
 }: InputProps) => {
+  const formControlData = useFormControl()
+
+  const { id, ariaInvalid, isRequired } = formControlData || {}
+
+  const formControlProps = {
+    id: `${id}-form-element`,
+    ...(ariaInvalid && { 'aria-invalid': true }),
+    ...(isRequired && { 'aria-required': true }),
+  }
+
   return (
     <InputContainer className="group">
       {icon && <InputIcon>{icon}</InputIcon>}
       {leftElement}
-      <InputElement {...props} />
+      <InputElement {...formControlProps} {...props} />
       {rightElement}
     </InputContainer>
   )

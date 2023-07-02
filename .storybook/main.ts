@@ -28,6 +28,7 @@ const config: StorybookConfig = {
     config.resolve.alias = {
       //@ts-ignore
       ...config.resolve.alias,
+      "@/hooks": path.resolve(__dirname, "../src/hooks"),
       "@/components": path.resolve(__dirname, "../src/components"),
       "@/styled-system": path.resolve(__dirname, "../styled-system"),
     };

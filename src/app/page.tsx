@@ -4,7 +4,7 @@ import { Button } from '@/components/Button'
 import { css } from '@/styled-system/css'
 import { Dialog, DialogRoot } from '@/components/Modals/Modal'
 import { DialogTrigger } from '@radix-ui/react-dialog'
-import { Input } from '@/components/Input'
+import { Input } from '@/components/Forms/Input'
 
 export default function Home() {
   return (
