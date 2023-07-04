@@ -1,7 +1,7 @@
-import { DropdownItem, DropdownItemProps } from './DropdownItem'
-
-import { DropdownLabel } from '../components/parts'
 import { DropdownMenuGroup } from '@radix-ui/react-dropdown-menu'
+
+import * as S from '../styles'
+import { DropdownItem, DropdownItemProps } from './Item'
 
 interface DropdownItemsGroup {
   groupName?: string
@@ -15,7 +15,7 @@ export const DropdownGroup = ({
 }: DropdownItemsGroup) => {
   return (
     <DropdownMenuGroup {...props}>
-      {groupName && <DropdownLabel>{groupName}</DropdownLabel>}
+      {groupName && <S.Label>{groupName}</S.Label>}
       {items.map((item) => (
         <DropdownItem key={item.itemLabel} {...item} />
       ))}

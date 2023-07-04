@@ -1,17 +1,12 @@
-import { css } from '@/styled-system/css'
-import * as Dropdown from '@radix-ui/react-dropdown-menu'
-import {
-  DropdownArrow,
-  DropdownContent,
-  DropdownLabel,
-  DropdownSeparator,
-} from '../components/parts'
-import { DropdownItem } from '../components/DropdownItem'
-import { DropdownCheckboxItem } from '../components/DropdownCheckboxItem'
-import { MdMenu } from 'react-icons/md'
-import { DropdownRadioItem } from '../components/DropdownRadioItem'
 import { useState } from 'react'
-import { DropdownSub } from '../components/DropdownSub'
+import { MdMenu } from 'react-icons/md'
+import * as Dropdown from '@radix-ui/react-dropdown-menu'
+
+import * as S from '../styles'
+import { DropdownItem } from '../parts/Item'
+import { DropdownSub } from '../parts/Submenu'
+import { DropdownCheckboxItem } from '../parts/CheckboxItem'
+import { DropdownRadioItem } from '../parts/RadioItem'
 
 export const RadixExampleDropdown = () => {
   const [bookmarksChecked, setBookmarksChecked] = useState(false)
@@ -20,27 +15,12 @@ export const RadixExampleDropdown = () => {
 
   return (
     <Dropdown.Root>
-      <Dropdown.Trigger asChild>
-        <button
-          aria-label="Open dropdown"
-          className={css({
-            fontFamily: 'inherit',
-            borderRadius: '100%',
-            height: '35px',
-            width: '35px',
-            display: 'inline-flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            color: 'purple.500',
-            backgroundColor: 'white',
-          })}
-        >
-          <MdMenu />
-        </button>
-      </Dropdown.Trigger>
+      <S.Trigger aria-label="Open dropdown">
+        <MdMenu />
+      </S.Trigger>
       <Dropdown.Portal>
-        <DropdownContent width="md" itemPaddingLeft="md" sideOffset={8}>
-          <DropdownArrow />
+        <S.Content width="md" itemPaddingLeft="md" sideOffset={8}>
+          <S.Arrow />
 
           <Dropdown.Group>
             <DropdownItem itemLabel="New Tab" rightSlot="⌘+T" />
@@ -56,12 +36,12 @@ export const RadixExampleDropdown = () => {
                 <DropdownItem itemLabel="Create Shortcut" />
                 <DropdownItem itemLabel="Name Window" />
               </Dropdown.Group>
-              <DropdownSeparator />
+              <S.Separator />
               <DropdownItem itemLabel="Developer Tools" />
             </DropdownSub>
           </Dropdown.Group>
 
-          <DropdownSeparator />
+          <S.Separator />
 
           <Dropdown.Group>
             <DropdownCheckboxItem
@@ -78,14 +58,14 @@ export const RadixExampleDropdown = () => {
             />
           </Dropdown.Group>
 
-          <DropdownSeparator />
+          <S.Separator />
 
           <Dropdown.RadioGroup value={person} onValueChange={setPerson}>
-            <DropdownLabel>People</DropdownLabel>
+            <S.Label>People</S.Label>
             <DropdownRadioItem value="Pedro Duarte" itemLabel="Pedro Duarte" />
             <DropdownRadioItem value="Colm Tuite" itemLabel="Colm Tuite" />
           </Dropdown.RadioGroup>
-        </DropdownContent>
+        </S.Content>
       </Dropdown.Portal>
     </Dropdown.Root>
   )

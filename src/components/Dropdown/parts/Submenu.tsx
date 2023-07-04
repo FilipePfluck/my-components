@@ -1,11 +1,9 @@
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 
-import {
-  DropdownRightSlot,
-  DropdownSubContent,
-  DropdownSubTrigger,
-} from './parts'
+import * as S from '../styles'
+
 import { MdChevronRight } from 'react-icons/md'
+import { cx } from '@/styled-system/css'
 
 interface DropdownSubTriggerProps
   extends DropdownMenu.DropdownMenuSubTriggerProps {
@@ -17,21 +15,24 @@ export const DropdownSub = ({
   label,
   children,
   itemPaddingLeft,
+  className,
   ...props
 }: DropdownSubTriggerProps) => {
+  const triggerClassname = cx('dropdownItem', className)
+
   return (
     <DropdownMenu.Sub {...props}>
-      <DropdownSubTrigger type="submenu">
+      <S.SubTrigger className={triggerClassname}>
         {label}
-        <DropdownRightSlot>
+        <S.RightSlot>
           <MdChevronRight />
-        </DropdownRightSlot>
-      </DropdownSubTrigger>
+        </S.RightSlot>
+      </S.SubTrigger>
 
       <DropdownMenu.Portal>
-        <DropdownSubContent itemPaddingLeft={itemPaddingLeft} sideOffset={4}>
+        <S.SubContent itemPaddingLeft={itemPaddingLeft} sideOffset={4}>
           {children}
-        </DropdownSubContent>
+        </S.SubContent>
       </DropdownMenu.Portal>
     </DropdownMenu.Sub>
   )

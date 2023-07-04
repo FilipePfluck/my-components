@@ -1,24 +1,26 @@
 import { ReactNode } from 'react'
 import { DropdownMenuItemProps } from '@radix-ui/react-dropdown-menu'
+import { cx } from '@/styled-system/css'
 
-import { DropdownItem as DropdownDefaultItem, DropdownRightSlot } from './parts'
+import * as S from '../styles'
 
 export interface DropdownItemProps extends DropdownMenuItemProps {
   itemLabel: string
   rightSlot?: ReactNode
-
-  type?: 'default' | 'submenu'
 }
 
 export const DropdownItem = ({
   itemLabel,
   rightSlot,
+  className,
   ...props
 }: DropdownItemProps) => {
+  const itemClassname = cx('dropdownItem', className)
+
   return (
-    <DropdownDefaultItem {...props}>
+    <S.Item className={itemClassname} {...props}>
       {itemLabel}
-      {rightSlot && <DropdownRightSlot>{rightSlot}</DropdownRightSlot>}
-    </DropdownDefaultItem>
+      {rightSlot && <S.RightSlot>{rightSlot}</S.RightSlot>}
+    </S.Item>
   )
 }

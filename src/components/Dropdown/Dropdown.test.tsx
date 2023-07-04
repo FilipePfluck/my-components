@@ -3,7 +3,7 @@ import { axe } from 'vitest-axe'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
-import { MessageExampleDropdown } from '.'
+import { MessageExampleDropdown } from './implementations/MessageDropdown'
 
 const ResizeObserverMock = vi.fn(() => ({
   disconnect: vi.fn(),
