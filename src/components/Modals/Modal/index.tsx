@@ -1,35 +1,13 @@
 import * as RadixDialog from '@radix-ui/react-dialog'
+import * as S from './styles'
 import { FiX } from 'react-icons/fi'
-import { styled } from '@/styled-system/jsx'
-import {
-  dialogClose,
-  dialogContent,
-  dialogDescription,
-  dialogHeader,
-  dialogOverlay,
-  dialogTitle,
-} from '@/styled-system/recipes'
+
 import { css } from '@/styled-system/css'
 import { Scrollable } from '@/components/Scrollable'
 
 export const DialogRoot = RadixDialog.Root
 
 export const DialogTrigger = RadixDialog.Trigger
-
-const DialogOverlay = styled(RadixDialog.Overlay, dialogOverlay)
-
-const DialogContent = styled(RadixDialog.Content, dialogContent)
-
-const DialogClose = styled(RadixDialog.Close, dialogClose)
-
-export const DialogTitle = styled(RadixDialog.Title, dialogTitle)
-
-export const DialogDescription = styled(
-  RadixDialog.Description,
-  dialogDescription,
-)
-
-export const DialogHeader = styled('header', dialogHeader)
 
 interface DialogProps extends RadixDialog.DialogContentProps {
   title?: string
@@ -39,13 +17,13 @@ interface DialogProps extends RadixDialog.DialogContentProps {
 export const Dialog = ({ children, title, description }: DialogProps) => {
   return (
     <RadixDialog.Portal>
-      <DialogOverlay />
-      <DialogContent>
+      <S.Overlay />
+      <S.Content>
         {(title || description) && (
-          <DialogHeader>
-            <DialogTitle>{title}</DialogTitle>
-            <DialogDescription>{description}</DialogDescription>
-          </DialogHeader>
+          <S.Header>
+            <S.Title>{title}</S.Title>
+            <S.Description>{description}</S.Description>
+          </S.Header>
         )}
         <Scrollable
           size="lg"
@@ -55,10 +33,10 @@ export const Dialog = ({ children, title, description }: DialogProps) => {
           {children}
         </Scrollable>
 
-        <DialogClose aria-label="Close">
+        <S.CloseButton aria-label="Close">
           <FiX />
-        </DialogClose>
-      </DialogContent>
+        </S.CloseButton>
+      </S.Content>
     </RadixDialog.Portal>
   )
 }

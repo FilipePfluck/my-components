@@ -1,15 +1,7 @@
 import { useFormControl } from '@/hooks/useFormControl'
-import { styled } from '@/styled-system/jsx'
-import {
-  inputContainer,
-  inputElement,
-  inputIcon,
-} from '@/styled-system/recipes'
 import { InputHTMLAttributes, ReactNode } from 'react'
 
-const InputContainer = styled('label', inputContainer)
-const InputElement = styled('input', inputElement)
-const InputIcon = styled('div', inputIcon)
+import * as S from './styles'
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   icon?: ReactNode
@@ -34,11 +26,11 @@ export const Input = ({
   }
 
   return (
-    <InputContainer className="group">
-      {icon && <InputIcon>{icon}</InputIcon>}
+    <S.InputContainer className="group">
+      {icon && <S.InputIcon>{icon}</S.InputIcon>}
       {leftElement}
-      <InputElement {...formControlProps} {...props} />
+      <S.Input {...formControlProps} {...props} />
       {rightElement}
-    </InputContainer>
+    </S.InputContainer>
   )
 }

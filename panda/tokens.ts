@@ -45,5 +45,11 @@ export const tokens = {
     slideLeftAndFadeOut: {
       value: 'slideLeftAndFadeOut 0.2s',
     },
+    check: {
+      value: 'check 0.2s',
+    },
+    unCheck: {
+      value: 'unCheck 0.2s',
+    },
   },
 }

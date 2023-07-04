@@ -1,6 +1,5 @@
 import { ReactNode } from 'react'
-import { verticalScroll } from '@/styled-system/recipes'
-import { cx } from '@/styled-system/css'
+import * as S from './styles'
 
 interface ScrollableProps {
   children: ReactNode
@@ -17,13 +16,14 @@ export const Scrollable = ({
   className,
   tabIndex = 0,
 }: ScrollableProps) => {
-  const scrollableClassname = cx(
-    className,
-    verticalScroll({ size, borderSize }),
-  )
   return (
-    <div tabIndex={tabIndex} className={scrollableClassname}>
+    <S.VerticalScroll
+      size={size}
+      borderSize={borderSize}
+      tabIndex={tabIndex}
+      className={className}
+    >
       {children}
-    </div>
+    </S.VerticalScroll>
   )
 }

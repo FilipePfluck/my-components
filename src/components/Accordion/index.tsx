@@ -1,22 +1,5 @@
-import { styled } from '@/styled-system/jsx'
-import {
-  accordionContent,
-  accordionHeader,
-  accordionItem,
-  accordionRoot,
-  accordionTrigger,
-} from '@/styled-system/recipes'
 import * as RadixAccordion from '@radix-ui/react-accordion'
-
-const AccordionRoot = styled(RadixAccordion.Root, accordionRoot)
-
-const AccordionItem = styled(RadixAccordion.Item, accordionItem)
-
-const AccordionHeader = styled(RadixAccordion.Header, accordionHeader)
-
-const AccordionTrigger = styled(RadixAccordion.Trigger, accordionTrigger)
-
-const AccordionContent = styled(RadixAccordion.Content, accordionContent)
+import * as S from './styles'
 
 type RootAccordionProps =
   | RadixAccordion.AccordionSingleProps
@@ -32,19 +15,19 @@ type AccordionProps = RootAccordionProps & {
 
 export const Accordion = ({ items, ...props }: AccordionProps) => {
   return (
-    <AccordionRoot {...props}>
+    <S.Root {...props}>
       {items.map((item) => (
-        <AccordionItem key={item.id} value={item.id}>
-          <AccordionHeader>
-            <AccordionTrigger data-testid={`Accordion-trigger-${item.id}`}>
+        <S.Item key={item.id} value={item.id}>
+          <S.Header>
+            <S.Trigger data-testid={`Accordion-trigger-${item.id}`}>
               {item.title}
-            </AccordionTrigger>
-          </AccordionHeader>
-          <AccordionContent>
+            </S.Trigger>
+          </S.Header>
+          <S.Content>
             <div>{item.content}</div>
-          </AccordionContent>
-        </AccordionItem>
+          </S.Content>
+        </S.Item>
       ))}
-    </AccordionRoot>
+    </S.Root>
   )
 }

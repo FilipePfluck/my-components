@@ -1,18 +1,19 @@
-import { button, type ButtonVariant } from '@/styled-system/recipes'
 import { ButtonHTMLAttributes, ForwardedRef, forwardRef } from 'react'
+import * as S from './styles'
 
-interface ButtonProps
-  extends ButtonVariant,
-    ButtonHTMLAttributes<HTMLButtonElement> {}
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  intent?: 'primary' | 'secondary'
+  size?: 'sm' | 'md' | 'lg'
+}
 
 const ButtonComponent = (
-  { children, intent, size, ...props }: ButtonProps,
+  { children, ...props }: ButtonProps,
   ref: ForwardedRef<HTMLButtonElement>,
 ) => {
   return (
-    <button className={button({ intent, size })} ref={ref} {...props}>
+    <S.ButtonContainer ref={ref} {...props}>
       {children}
-    </button>
+    </S.ButtonContainer>
   )
 }
 

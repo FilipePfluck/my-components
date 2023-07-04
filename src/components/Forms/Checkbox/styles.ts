@@ -1,51 +1,64 @@
-import { defineRecipe } from '@pandacss/dev'
+import * as Checkbox from '@radix-ui/react-checkbox'
+import { styled } from '@/styled-system/jsx'
+import { cva } from '@/styled-system/css'
 
-export const checkboxRootRecipe = defineRecipe({
-  name: 'checkboxRoot',
-  base: {
-    bg: 'gray.200',
-    h: '24px',
-    w: '24px',
-    rounded: 'md',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    boxShadow: 'sm',
-    borderWidth: '2px',
-    borderColor: 'gray.400',
-    borderStyle: 'solid',
+export const Root = styled(
+  Checkbox.Root,
+  cva({
+    base: {
+      bg: 'gray.200',
+      h: '24px',
+      w: '24px',
+      rounded: 'md',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      boxShadow: 'sm',
+      borderWidth: '2px',
+      borderStyle: 'solid',
+      borderColor: 'gray.400',
+      transition: '0.2s border-color',
+      ring: '2px',
 
-    ring: '2px',
-
-    _checked: {
-      borderColor: 'purple.500',
+      '&[aria-checked="true"]': {
+        borderColor: 'purple.500',
+      },
     },
-  },
-})
+  }),
+)
 
-export const checkboxIndicatorRecipe = defineRecipe({
-  name: 'checkboxIndicator',
-  base: {
-    h: '16px',
-    w: '16px',
-    rounded: 'sm',
-    bg: 'purple.500',
-  },
-})
+export const Indicator = styled(
+  Checkbox.Indicator,
+  cva({
+    base: {
+      h: '16px',
+      w: '16px',
+      rounded: 'sm',
+      bg: 'purple.500',
+      transition: '0.2s',
 
-export const checkboxLabelRecipe = defineRecipe({
-  name: 'checkboxLabel',
-  base: {
-    color: 'gray.700',
-    fontSize: '14px',
-  },
-})
+      animation: 'check',
+    },
+  }),
+)
 
-export const checkboxContainerRecipe = defineRecipe({
-  name: 'checkboxContainer',
-  base: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '2',
-  },
-})
+export const Label = styled(
+  'label',
+  cva({
+    base: {
+      color: 'gray.700',
+      fontSize: '14px',
+    },
+  }),
+)
+
+export const Container = styled(
+  'div',
+  cva({
+    base: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: '2',
+    },
+  }),
+)
