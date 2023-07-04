@@ -1,16 +1,23 @@
 import { ForwardedRef, forwardRef } from 'react'
 import * as RadixSelect from '@radix-ui/react-select'
+import { SelectProps as RadixSelectProps } from '@radix-ui/react-select'
 
 import * as S from './styles'
-import { MdCheck } from 'react-icons/md'
+import { MdCheck, MdExpandLess, MdExpandMore } from 'react-icons/md'
+
+interface SelectItemProps extends RadixSelect.SelectItemProps {
+  rightSlot?: string
+}
 
 const SelectItemComponent = (
-  { children, ...props }: RadixSelect.SelectItemProps,
+  { children, rightSlot, ...props }: SelectItemProps,
   forwardedRef: ForwardedRef<HTMLDivElement>,
 ) => {
   return (
     <S.SelectItem {...props} ref={forwardedRef}>
       <RadixSelect.ItemText>{children}</RadixSelect.ItemText>
+      {rightSlot && <S.RightSlot>{rightSlot}</S.RightSlot>}
+
       <S.SelectItemIndicator>
         <MdCheck />
       </S.SelectItemIndicator>
@@ -20,11 +27,38 @@ const SelectItemComponent = (
 
 const SelectItem = forwardRef(SelectItemComponent)
 
-export const Select = () => {
+interface SelectGroup {
+  label?: string
+  items: {
+    value: string
+    label: string
+    rightSlot?: string
+  }[]
+}
+
+interface SelectProps extends RadixSelectProps {
+  placeholder: string
+  groups: SelectGroup[]
+  width?: 'sm' | 'md' | 'lg' | 'auto' | 'full'
+}
+
+export const Select = ({
+  groups,
+  placeholder,
+  width,
+  ...props
+}: SelectProps) => {
+  const groupsLength = groups.length
+
   return (
-    <RadixSelect.Root>
-      <S.SelectTrigger>
-        <RadixSelect.Value placeholder="select a value" />
+    <RadixSelect.Root {...props}>
+      <S.SelectTrigger
+        aria-label={placeholder}
+        data-testid="SelectTrigger"
+        width={width}
+      >
+        <RadixSelect.Value placeholder={placeholder} />
+        <MdExpandMore aria-hidden="true" />
       </S.SelectTrigger>
       <RadixSelect.Portal>
         <RadixSelect.Content
@@ -32,34 +66,29 @@ export const Select = () => {
           position="popper"
           sideOffset={16}
         >
-          <S.SelectScrollUpButton />
+          <S.SelectScrollUpButton aria-label="scroll up">
+            <MdExpandLess />
+          </S.SelectScrollUpButton>
           <S.SelectViewport>
-            <RadixSelect.Group>
-              <S.SelectLabel>Fruits</S.SelectLabel>
-              <SelectItem value="apple">Apple</SelectItem>
-              <SelectItem value="banana">Banana</SelectItem>
-              <SelectItem value="orange">Orange</SelectItem>
-              <SelectItem value="grape">Grape</SelectItem>
-              <S.SelectSeparator />
-            </RadixSelect.Group>
-
-            <RadixSelect.Group>
-              <S.SelectLabel>Vegetables</S.SelectLabel>
-              <SelectItem value="cauliflower">Cauliflower</SelectItem>
-              <SelectItem value="potato">Potato</SelectItem>
-              <SelectItem value="pumpkim">Pumpkim</SelectItem>
-              <SelectItem value="carrot">Carrot</SelectItem>
-              <S.SelectSeparator />
-            </RadixSelect.Group>
-
-            <RadixSelect.Group>
-              <S.SelectLabel>Meats</S.SelectLabel>
-              <SelectItem value="beef">Beef</SelectItem>
-              <SelectItem value="pork">Pork</SelectItem>
-              <SelectItem value="chicken">Chicken</SelectItem>
-            </RadixSelect.Group>
+            {groups.map((group, index) => (
+              <RadixSelect.Group key={`select-group-${index}`}>
+                {!!group.label && <S.SelectLabel>{group.label}</S.SelectLabel>}
+                {group.items.map((item) => (
+                  <SelectItem
+                    key={item.value}
+                    value={item.value}
+                    rightSlot={item.rightSlot}
+                  >
+                    {item.label}
+                  </SelectItem>
+                ))}
+                {index + 1 < groupsLength && <S.SelectSeparator />}
+              </RadixSelect.Group>
+            ))}
           </S.SelectViewport>
-          <S.SelectScrollDownButton />
+          <S.SelectScrollDownButton aria-label="scroll down">
+            <MdExpandMore />
+          </S.SelectScrollDownButton>
         </RadixSelect.Content>
       </RadixSelect.Portal>
     </RadixSelect.Root>

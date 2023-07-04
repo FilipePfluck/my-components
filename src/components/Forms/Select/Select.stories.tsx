@@ -1,14 +1,19 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { Select } from './index'
+import { FoodSelect } from './implementations/FoodsSelect'
+import { CountrySelect } from './implementations/CountriesSelect'
 
-const meta: Meta<typeof Select> = {
-  component: Select,
+const meta: Meta<typeof FoodSelect> = {
+  component: FoodSelect,
 }
 
 export default meta
-type Story = StoryObj<typeof Select>
+type Story = StoryObj<typeof FoodSelect>
 
-export const Default: Story = {
-  render: Select,
+export const Foods: Story = {
+  render: FoodSelect,
+}
+
+export const Countries: Story = {
+  render: CountrySelect,
 }

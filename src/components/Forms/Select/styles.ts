@@ -9,17 +9,32 @@ export const SelectTrigger = styled(
     base: {
       display: 'inline-flex',
       alignItems: 'center',
-      justifyContent: 'center',
+      justifyContent: 'space-between',
       rounded: 'md',
       px: '4',
+      py: '2',
       fontSize: 'sm',
-      h: '8',
-      w: '32',
+      h: '10',
       gap: '2',
       transition: 'background 0.2s',
       bg: { base: 'gray.50', _hover: 'gray.100' },
-      color: 'purple.700',
+      color: 'gray.800',
+      '&[data-placeholder]': { color: 'gray.600' },
       boxShadow: 'md',
+      borderWidth: '2px',
+      borderColor: { base: 'gray.400', _dataOpen: 'purple.400' },
+    },
+    variants: {
+      width: {
+        auto: {},
+        sm: { w: '24' },
+        md: { w: '40' },
+        lg: { w: '64' },
+        full: { w: 'full' },
+      },
+    },
+    defaultVariants: {
+      width: 'md',
     },
   }),
 )
@@ -31,10 +46,11 @@ export const selectContentClassname = cva({
     bg: 'gray.50',
     rounded: 'md',
     boxShadow: 'md',
-    py: '2',
-    w: '32',
-    h: 'var(--radix-select-content-available-height)',
-    maxH: '64',
+    py: '6',
+    w: 'var(--radix-select-trigger-width)',
+    h: 'calc(var(--radix-select-content-available-height) + 48px)',
+    // 256px (viewport max height) + 48px (content py)
+    maxH: '304px',
     scrollBehavior: 'smooth',
 
     _dataOpen: {
@@ -58,7 +74,9 @@ export const SelectViewport = styled(
   Select.Viewport,
   cva({
     base: {
-      p: '1',
+      px: '1',
+      h: 'var(--radix-select-content-available-height)',
+      maxH: '64',
     },
   }),
 )
@@ -77,6 +95,7 @@ export const SelectItem = styled(
       position: 'relative',
       userSelect: 'none',
       transition: '0.125s',
+      cursor: 'pointer',
 
       _dataDisabled: {
         color: 'purple.400',
@@ -98,7 +117,7 @@ export const SelectLabel = styled(
     base: {
       px: '6',
       fontSize: 'xs',
-      lineHeight: '200%',
+      height: '6',
       color: 'gray.800',
     },
   }),
@@ -110,7 +129,7 @@ export const SelectSeparator = styled(
     base: {
       h: '1px',
       bg: 'purple.500',
-      m: '1',
+      m: '3',
     },
   }),
 )
@@ -129,13 +148,21 @@ export const SelectItemIndicator = styled(
   }),
 )
 
+const baseScrollButtonStyle = {
+  height: '6',
+  backgroundColor: 'gray.50',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  color: 'purple.700',
+  cursor: 'default',
+}
+
 export const SelectScrollUpButton = styled(
   Select.ScrollUpButton,
   cva({
     base: {
-      height: '4',
-      backgroundColor: 'gray.50',
-      cursor: 'default',
+      ...baseScrollButtonStyle,
       position: 'absolute',
       top: '0px',
       left: '0px',
@@ -148,9 +175,7 @@ export const SelectScrollDownButton = styled(
   Select.ScrollDownButton,
   cva({
     base: {
-      height: '4',
-      backgroundColor: 'gray.50',
-      cursor: 'default',
+      ...baseScrollButtonStyle,
       position: 'absolute',
       bottom: '0px',
       left: '0px',
@@ -158,3 +183,12 @@ export const SelectScrollDownButton = styled(
     },
   }),
 )
+
+export const RightSlot = styled('div', {
+  base: {
+    ml: 'auto',
+    pl: '5',
+    color: 'gray.700',
+    fontSize: 'xs',
+  },
+})
