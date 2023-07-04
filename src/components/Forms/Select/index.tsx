@@ -32,6 +32,7 @@ export const Select = () => {
           position="popper"
           sideOffset={16}
         >
+          <S.SelectScrollUpButton />
           <S.SelectViewport>
             <RadixSelect.Group>
               <S.SelectLabel>Fruits</S.SelectLabel>
@@ -40,13 +41,25 @@ export const Select = () => {
               <SelectItem value="orange">Orange</SelectItem>
               <SelectItem value="grape">Grape</SelectItem>
               <S.SelectSeparator />
+            </RadixSelect.Group>
+
+            <RadixSelect.Group>
               <S.SelectLabel>Vegetables</S.SelectLabel>
               <SelectItem value="cauliflower">Cauliflower</SelectItem>
               <SelectItem value="potato">Potato</SelectItem>
               <SelectItem value="pumpkim">Pumpkim</SelectItem>
-              <SelectItem value="yam">Yam</SelectItem>
+              <SelectItem value="carrot">Carrot</SelectItem>
+              <S.SelectSeparator />
+            </RadixSelect.Group>
+
+            <RadixSelect.Group>
+              <S.SelectLabel>Meats</S.SelectLabel>
+              <SelectItem value="beef">Beef</SelectItem>
+              <SelectItem value="pork">Pork</SelectItem>
+              <SelectItem value="chicken">Chicken</SelectItem>
             </RadixSelect.Group>
           </S.SelectViewport>
+          <S.SelectScrollDownButton />
         </RadixSelect.Content>
       </RadixSelect.Portal>
     </RadixSelect.Root>

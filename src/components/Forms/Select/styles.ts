@@ -26,11 +26,29 @@ export const SelectTrigger = styled(
 
 export const selectContentClassname = cva({
   base: {
+    position: 'relative',
     overflow: 'hidden',
     bg: 'gray.50',
     rounded: 'md',
     boxShadow: 'md',
+    py: '2',
     w: '32',
+    h: 'var(--radix-select-content-available-height)',
+    maxH: '64',
+    scrollBehavior: 'smooth',
+
+    _dataOpen: {
+      _top: { animation: 'slideDownAndFadeIn' },
+      _right: { animation: 'slideLeftAndFadeIn' },
+      _bottom: { animation: 'slideUpAndFadeIn' },
+      _left: { animation: 'slideRightAndFadeIn' },
+    },
+    _dataClosed: {
+      _top: { animation: 'slideDownAndFadeOut' },
+      _right: { animation: 'slideLeftAndFadeOut' },
+      _bottom: { animation: 'slideUpAndFadeOut' },
+      _left: { animation: 'slideRightAndFadeOut' },
+    },
   },
 })
 
@@ -58,6 +76,7 @@ export const SelectItem = styled(
       p: '0px 32px 0 24px',
       position: 'relative',
       userSelect: 'none',
+      transition: '0.125s',
 
       _dataDisabled: {
         color: 'purple.400',
@@ -110,24 +129,32 @@ export const SelectItemIndicator = styled(
   }),
 )
 
-const scrollButtonStyles = cva({
-  base: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: '6',
-    backgroundColor: 'gray.50',
-    color: 'purple.700',
-    cursor: 'default',
-  },
-})
-
 export const SelectScrollUpButton = styled(
   Select.ScrollUpButton,
-  scrollButtonStyles,
+  cva({
+    base: {
+      height: '4',
+      backgroundColor: 'gray.50',
+      cursor: 'default',
+      position: 'absolute',
+      top: '0px',
+      left: '0px',
+      right: '0px',
+    },
+  }),
 )
 
 export const SelectScrollDownButton = styled(
   Select.ScrollDownButton,
-  scrollButtonStyles,
+  cva({
+    base: {
+      height: '4',
+      backgroundColor: 'gray.50',
+      cursor: 'default',
+      position: 'absolute',
+      bottom: '0px',
+      left: '0px',
+      right: '0px',
+    },
+  }),
 )

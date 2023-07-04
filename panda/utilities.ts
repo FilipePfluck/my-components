@@ -6,9 +6,14 @@ export const utilities = {
       transform(value: string) {
         return {
           '&:focus-visible': {
-            outlineWidth: value,
-            outlineStyle: 'solid',
-            outlineColor: 'token(colors.blue.500)',
+            outline: 'none',
+          },
+          'body:not(.using-mouse) &': {
+            '&:focus-visible': {
+              outlineWidth: value,
+              outlineStyle: 'solid',
+              outlineColor: 'token(colors.blue.500)',
+            },
           },
         }
       },
