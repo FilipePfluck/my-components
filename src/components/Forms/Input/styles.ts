@@ -5,7 +5,7 @@ export const InputContainer = styled(
   'label',
   cva({
     base: {
-      px: '4',
+      maxW: 'full',
       rounded: 'md',
       bg: 'gray.50',
       boxShadow: 'md',
@@ -27,6 +27,38 @@ export const InputContainer = styled(
         cursor: 'not-allowed',
       },
     },
+
+    variants: {
+      size: {
+        sm: {
+          px: '2',
+        },
+        md: {
+          px: '4',
+        },
+      },
+
+      width: {
+        auto: {},
+        sm: {
+          w: '24',
+        },
+        md: {
+          w: '40',
+        },
+        lg: {
+          w: '64',
+        },
+        full: {
+          w: 'full',
+        },
+      },
+    },
+
+    defaultVariants: {
+      size: 'md',
+      width: 'auto',
+    },
   }),
 )
 
@@ -34,7 +66,7 @@ export const Input = styled(
   'input',
   cva({
     base: {
-      py: '2',
+      maxW: 'full',
       bg: 'transparent',
       color: 'gray.800',
       fontSize: 'sm',
@@ -49,6 +81,21 @@ export const Input = styled(
       _autofill: {
         boxShadow: '0 0 0px 1000px rgba(0,0,0,0) inset',
       },
+    },
+
+    variants: {
+      size: {
+        sm: {
+          py: '1',
+        },
+        md: {
+          py: '2',
+        },
+      },
+    },
+
+    defaultVariants: {
+      size: 'md',
     },
   }),
 )
