@@ -4,7 +4,7 @@ import { Checkbox } from './index'
 import userEvent from '@testing-library/user-event'
 import { axe } from 'vitest-axe'
 
-describe('Button component', () => {
+describe('Checkbox component', () => {
   const { container } = render(
     <Checkbox id="checkbox-test" label="This is a checkbox" />,
   )
