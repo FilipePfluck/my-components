@@ -6,6 +6,7 @@ import { globalCss } from './globalCss'
 import { tokens } from './tokens'
 import { recipes } from './recipes'
 import { keyframes } from './keyframes'
+import { textStyles } from './textStyles'
 
 export const config: Config = {
   utilities,
@@ -16,6 +17,7 @@ export const config: Config = {
       recipes,
       keyframes,
       tokens,
+      textStyles,
     },
   },
 }

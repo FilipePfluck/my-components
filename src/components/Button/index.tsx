@@ -4,6 +4,7 @@ import * as S from './styles'
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   intent?: 'primary' | 'secondary'
   size?: 'sm' | 'md' | 'lg'
+  full?: boolean
 }
 
 const ButtonComponent = (

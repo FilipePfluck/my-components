@@ -57,6 +57,12 @@ export const ButtonContainer = styled(
           fontSize: 'lg',
         },
       },
+
+      full: {
+        true: {
+          w: 'full',
+        },
+      },
     },
     defaultVariants: {
       intent: 'primary',

@@ -4,12 +4,11 @@ import { ReactNode, useEffect } from 'react'
 import './globals.css'
 import { Inter } from 'next/font/google'
 import { cx } from '@/styled-system/css'
-import { verticalScroll } from '@/styled-system/recipes'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function RootLayout({ children }: { children: ReactNode }) {
-  const bodyClassname = cx(inter.className, verticalScroll())
+  const bodyClassname = cx(inter.className)
 
   useEffect(() => {
     document.body.classList.add('using-mouse')

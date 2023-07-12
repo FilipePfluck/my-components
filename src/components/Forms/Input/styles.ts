@@ -107,7 +107,7 @@ export const InputIcon = styled(
       fontSize: 'md',
       transition: '0.2s',
       color: {
-        base: 'purple.300',
+        base: 'purple.400',
         // @ts-ignore
         '.group:has(:disabled) &': 'gray.400',
         '.group:has([aria-invalid]) &': 'red.400',

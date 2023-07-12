@@ -5,7 +5,6 @@ import { css } from '@/styled-system/css'
 import { Dialog, DialogRoot } from '@/components/Modals/Modal'
 import { DialogTrigger } from '@radix-ui/react-dialog'
 import { Input } from '@/components/Forms/Input'
-import { Select } from '@/components/Forms/Select'
 
 export default function Home() {
   return (
@@ -14,7 +13,6 @@ export default function Home() {
         <p className={css({ w: '160px', ml: 'auto' })}>This is a header</p>
       </header>
       <Input type="name" />
-      <Select />
       <div className={css({ p: '8' })}>
         <DialogRoot>
           <DialogTrigger asChild>
