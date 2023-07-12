@@ -8,7 +8,7 @@ export const Root = styled(
     base: {
       display: 'flex',
       flexDir: 'column',
-      width: '80',
+      // width: '80',
       boxShadow: 'md',
       rounded: 'lg',
       position: 'relative',
@@ -41,6 +41,9 @@ export const Trigger = styled(
       color: 'gray.800',
       userSelect: 'none',
       position: 'relative',
+      minW: 'max-content',
+      w: 'full',
+      p: '4',
       _focus: {
         zIndex: '5',
       },

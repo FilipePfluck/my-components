@@ -3,7 +3,7 @@
 import { TabContent, TabList, TabRoot, TabTrigger } from '.'
 import { styled } from '@/styled-system/jsx'
 import { cva } from '@/styled-system/css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 
 const Text = styled(
@@ -13,7 +13,8 @@ const Text = styled(
       fontSize: '128px',
       textAlign: 'center',
       position: 'absolute',
-      w: '280px',
+      // removing the parents padding
+      w: 'calc(100% - 40px)',
       zIndex: '5',
       userSelect: 'none',
     },
@@ -33,6 +34,24 @@ const SelectedIndicator = styled(
   }),
 )
 
+interface GenericTabItem {
+  name: string
+  emoji: string
+}
+
+type TabItemsList<T extends readonly GenericTabItem[]> = {
+  items: T
+  defaultValue: T[number]['name']
+}
+
+interface AnimatedTabContentProps {
+  value: string
+  previousValue: string | null
+  name: string
+  label: string
+  direction: string
+}
+
 interface TriggerProps {
   value: string
   label: string
@@ -50,59 +69,130 @@ const FoodTab = ({ value, label, isSelected }: TriggerProps) => (
   <Trigger value={value} label={label} isSelected={isSelected} />
 )
 
-interface AnimatedTabContentProps {
-  value: string
-  name: string
-  label: string
-}
-
 const AnimatedTabContent = ({
   name,
   value,
+  previousValue,
   label,
-}: AnimatedTabContentProps) => (
-  <TabContent
-    position="absolute"
-    top="48px"
-    height="240px"
-    w="full"
-    key={name}
-    value={name}
-    forceMount
-  >
-    <AnimatePresence>
-      <Text
-        initial="hidden"
-        animate={name === value ? 'visible' : 'hidden'}
-        exit="exit"
-        // variants={variants}
-        // key={emojis[tab]}
-      >
-        {label}
-      </Text>
-    </AnimatePresence>
-  </TabContent>
-)
+  direction,
+}: AnimatedTabContentProps) => {
+  const isDefaultValue = name === value && !previousValue
+  const isActive = name === value
+  const isExiting = name === previousValue
 
-interface GenericTabItem {
-  name: string
-  emoji: string
-}
+  const [animate, setAnimate] = useState(isActive ? 'visible' : 'hidden')
 
-type TabItemsList<T extends readonly GenericTabItem[]> = {
-  items: T
-  defaultValue: T[number]['name']
+  useEffect(() => {
+    if (isActive) {
+      setAnimate('visible')
+    } else {
+      if (isExiting) {
+        setAnimate('exit')
+      }
+    }
+  }, [isExiting, isActive])
+
+  useEffect(() => {
+    // @ts-ignore
+    let timeoutId = null
+
+    if (animate === 'exit') {
+      timeoutId = setTimeout(() => {
+        setAnimate('hidden')
+      }, 250)
+    }
+
+    // if the user is retarded and keeps changing the state before 250ms,
+    // the timeout will be canceled
+    return () => {
+      // @ts-ignore
+      if (timeoutId) {
+        clearTimeout(timeoutId)
+      }
+    }
+  }, [animate])
+
+  const variants = {
+    hidden: {
+      x: direction === 'right' ? -100 : 100,
+      opacity: 0,
+      scale: 0.6,
+    },
+    visible: {
+      x: 0,
+      opacity: 1,
+      scale: 1,
+    },
+    exit: {
+      x: direction === 'right' ? -100 : 100,
+      opacity: 0,
+      scale: 0.6,
+    },
+  }
+
+  return (
+    <TabContent
+      position="absolute"
+      top="48px"
+      height="240px"
+      w="full"
+      key={name}
+      value={name}
+      forceMount
+    >
+      <AnimatePresence>
+        <Text
+          initial={isDefaultValue ? 'visible' : 'hidden'}
+          animate={animate}
+          exit="exit"
+          variants={variants}
+          key={name}
+        >
+          {label}
+        </Text>
+      </AnimatePresence>
+    </TabContent>
+  )
 }
 
 export const AnimatedTabs = <T extends readonly GenericTabItem[]>({
   defaultValue,
   items,
 }: TabItemsList<T>) => {
-  const [value, setValue] = useState<T[number]['name']>(defaultValue)
+  type Value = T[number]['name']
+  type PrevValue = Value | null
+
+  const [value, setValue] = useState<Value>(defaultValue)
+  const [previousValue, setPreviousValue] = useState<PrevValue>(null)
+  const [direction, setDirection] = useState('right')
+
+  const handleValueChange = (v: string) => {
+    setValue((prevState) => {
+      setPreviousValue(prevState)
+
+      const currentValueIndex = items.findIndex((item) => {
+        return item.name === v
+      })
+
+      const previousValueIndex = items.findIndex((item) => {
+        return item.name === prevState
+      })
+
+      const newDirection =
+        currentValueIndex > previousValueIndex ? 'right' : 'left'
+      setDirection(newDirection)
+
+      return v
+    })
+  }
 
   return (
     // @ts-ignore
-    <TabRoot defaultValue="tomato" value={value} onValueChange={setValue}>
+    <TabRoot
+      defaultValue="tomato"
+      value={value}
+      onValueChange={handleValueChange}
+    >
       <TabList>
         {items.map(({ emoji, name }) => (
           <FoodTab
@@ -119,6 +209,8 @@ export const AnimatedTabs = <T extends readonly GenericTabItem[]>({
           name={name}
           value={value}
           label={emoji}
+          previousValue={previousValue}
+          direction={direction}
         />
       ))}
     </TabRoot>
