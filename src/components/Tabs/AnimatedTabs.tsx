@@ -66,7 +66,7 @@ const Trigger = ({ isSelected, label, value }: TriggerProps) => (
   </TabTrigger>
 )
 
-const FoodTab = ({ value, label, isSelected }: TriggerProps) => (
+const AnimatedTab = ({ value, label, isSelected }: TriggerProps) => (
   <Trigger value={value} label={label} isSelected={isSelected} />
 )
 
@@ -151,7 +151,7 @@ export const AnimatedTabs = <T extends readonly GenericTabItem[]>({
     >
       <TabList>
         {items.map(({ emoji, name }) => (
-          <FoodTab
+          <AnimatedTab
             key={name}
             value={name}
             label={`${emoji} ${name.charAt(0).toUpperCase() + name.slice(1)}`}
