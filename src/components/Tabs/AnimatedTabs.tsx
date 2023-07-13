@@ -3,8 +3,8 @@
 import { TabContent, TabList, TabRoot, TabTrigger } from '.'
 import { styled } from '@/styled-system/jsx'
 import { cva } from '@/styled-system/css'
-import { useEffect, useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { useState } from 'react'
+import { AnimatePresence, Variants, motion } from 'framer-motion'
 
 const Text = styled(
   motion.p,
@@ -49,7 +49,8 @@ interface AnimatedTabContentProps {
   previousValue: string | null
   name: string
   label: string
-  direction: string
+  currentValueIndex: number
+  thisValueIndex: number
 }
 
 interface TriggerProps {
@@ -74,59 +75,24 @@ const AnimatedTabContent = ({
   value,
   previousValue,
   label,
-  direction,
+  currentValueIndex,
+  thisValueIndex,
 }: AnimatedTabContentProps) => {
   const isDefaultValue = name === value && !previousValue
   const isActive = name === value
-  const isExiting = name === previousValue
 
-  const [animate, setAnimate] = useState(isActive ? 'visible' : 'hidden')
-
-  useEffect(() => {
-    if (isActive) {
-      setAnimate('visible')
-    } else {
-      if (isExiting) {
-        setAnimate('exit')
-      }
-    }
-  }, [isExiting, isActive])
-
-  useEffect(() => {
-    // @ts-ignore
-    let timeoutId = null
-
-    if (animate === 'exit') {
-      timeoutId = setTimeout(() => {
-        setAnimate('hidden')
-      }, 250)
-    }
-
-    // if the user is retarded and keeps changing the state before 250ms,
-    // the timeout will be canceled
-    return () => {
-      // @ts-ignore
-      if (timeoutId) {
-        clearTimeout(timeoutId)
-      }
-    }
-  }, [animate])
-
-  const variants = {
+  const variants: Variants = {
     hidden: {
-      x: direction === 'right' ? -100 : 100,
+      x: thisValueIndex > currentValueIndex ? 100 : -100,
       opacity: 0,
       scale: 0.6,
+      transitionDuration: '0.1s',
     },
     visible: {
       x: 0,
       opacity: 1,
       scale: 1,
-    },
-    exit: {
-      x: direction === 'right' ? -100 : 100,
-      opacity: 0,
-      scale: 0.6,
+      transitionDuration: '0.1s',
     },
   }
 
@@ -143,8 +109,7 @@ const AnimatedTabContent = ({
       <AnimatePresence>
         <Text
           initial={isDefaultValue ? 'visible' : 'hidden'}
-          animate={animate}
-          exit="exit"
+          animate={isActive ? 'visible' : 'hidden'}
           variants={variants}
           key={name}
         >
@@ -164,23 +129,14 @@ export const AnimatedTabs = <T extends readonly GenericTabItem[]>({
 
   const [value, setValue] = useState<Value>(defaultValue)
   const [previousValue, setPreviousValue] = useState<PrevValue>(null)
-  const [direction, setDirection] = useState('right')
+
+  const valueIndex = items.findIndex((item) => {
+    return item.name === value
+  })
 
   const handleValueChange = (v: string) => {
     setValue((prevState) => {
       setPreviousValue(prevState)
-
-      const currentValueIndex = items.findIndex((item) => {
-        return item.name === v
-      })
-
-      const previousValueIndex = items.findIndex((item) => {
-        return item.name === prevState
-      })
-
-      const newDirection =
-        currentValueIndex > previousValueIndex ? 'right' : 'left'
-      setDirection(newDirection)
 
       return v
     })
@@ -203,14 +159,15 @@ export const AnimatedTabs = <T extends readonly GenericTabItem[]>({
           />
         ))}
       </TabList>
-      {items.map(({ name, emoji }) => (
+      {items.map(({ name, emoji }, index) => (
         <AnimatedTabContent
           key={name}
           name={name}
           value={value}
           label={emoji}
           previousValue={previousValue}
-          direction={direction}
+          thisValueIndex={index}
+          currentValueIndex={valueIndex}
         />
       ))}
     </TabRoot>
