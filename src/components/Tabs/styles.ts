@@ -57,7 +57,9 @@ export const Trigger = styled(
       '&[data-state="active"]': {
         color: 'purple.500',
       },
-      ring: '2px',
+      // I only removed this because there is another indicator of focus
+      outline: 'none',
+      // ring: '2px',
     },
     variants: {
       activeIndicator: {
