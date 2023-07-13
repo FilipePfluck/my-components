@@ -14,11 +14,16 @@ interface DialogProps extends RadixDialog.DialogContentProps {
   description?: string
 }
 
-export const Dialog = ({ children, title, description }: DialogProps) => {
+export const Dialog = ({
+  children,
+  title,
+  description,
+  ...props
+}: DialogProps) => {
   return (
     <RadixDialog.Portal>
       <S.Overlay />
-      <S.Content>
+      <S.Content {...props}>
         {(title || description) && (
           <S.Header>
             <S.Title>{title}</S.Title>

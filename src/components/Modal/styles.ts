@@ -19,38 +19,45 @@ export const Overlay = styled(
   }),
 )
 
+export const centerStyles = {
+  position: 'fixed',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+} as const
+
+export const dialogContentStyles = {
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '4',
+
+  bg: 'gray.200',
+  rounded: 'lg',
+  boxShadow: 'md',
+  p: '6',
+
+  w: '90vw',
+  maxW: '450px',
+  maxH: '85vh',
+
+  _focus: {
+    outline: 'none',
+  },
+
+  "&[data-state='open']": {
+    animation: 'openModal',
+  },
+  "&[data-state='closed']": {
+    animation: 'closeModal',
+  },
+} as const
+
 export const Content = styled(
   Dialog.Content,
   cva({
     base: {
-      display: 'flex',
-      flexDirection: 'column',
-      gap: '4',
-
-      bg: 'gray.200',
-      rounded: 'lg',
-      boxShadow: 'md',
-      p: '6',
-
-      position: 'fixed',
-      top: '50%',
-      left: '50%',
-      transform: 'translate(-50%, -50%)',
-
-      w: '90vw',
-      maxW: '450px',
-      maxH: '85vh',
-
-      _focus: {
-        outline: 'none',
-      },
-
-      "&[data-state='open']": {
-        animation: 'openModal',
-      },
-      "&[data-state='closed']": {
-        animation: 'closeModal',
-      },
+      ...centerStyles,
+      ...dialogContentStyles,
     },
   }),
 )

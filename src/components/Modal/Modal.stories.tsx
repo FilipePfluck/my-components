@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { Dialog, DialogRoot, DialogTrigger } from './index'
 import { css } from '@/styled-system/css'
 import { Button } from '@/components/Button'
+import { AnimatedDialog } from './implementations/Animated'
 
 const meta: Meta<typeof Dialog> = {
   component: Dialog,
@@ -33,4 +34,8 @@ export const Primary: Story = {
       </DialogRoot>
     </div>
   ),
+}
+
+export const Animated: Story = {
+  render: AnimatedDialog,
 }
