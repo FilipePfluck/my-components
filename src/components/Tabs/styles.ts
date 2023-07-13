@@ -1,6 +1,7 @@
 import { cva } from '@/styled-system/css'
 import { styled } from '@/styled-system/jsx'
 import * as Tabs from '@radix-ui/react-tabs'
+import { motion } from 'framer-motion'
 
 export const Root = styled(
   Tabs.Root,
@@ -84,6 +85,44 @@ export const Content = styled(
       bg: 'gray.50',
       borderBottomRadius: 'lg',
       ring: '2px',
+    },
+    variants: {
+      animated: {
+        true: {
+          position: 'absolute',
+          top: '48px',
+          height: '240px',
+          w: 'full',
+        },
+      },
+    },
+  }),
+)
+
+export const Text = styled(
+  motion.p,
+  cva({
+    base: {
+      fontSize: '128px',
+      textAlign: 'center',
+      position: 'absolute',
+      // removing the parents padding
+      w: 'calc(100% - 40px)',
+      zIndex: '5',
+      userSelect: 'none',
+    },
+  }),
+)
+
+export const SelectedIndicator = styled(
+  motion.div,
+  cva({
+    base: {
+      position: 'absolute',
+      bottom: '0',
+      height: '2px',
+      w: 'full',
+      bg: 'purple.500',
     },
   }),
 )

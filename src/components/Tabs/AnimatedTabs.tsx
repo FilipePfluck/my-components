@@ -1,38 +1,9 @@
 'use client'
 
 import { TabContent, TabList, TabRoot, TabTrigger } from '.'
-import { styled } from '@/styled-system/jsx'
-import { cva } from '@/styled-system/css'
 import { useState } from 'react'
-import { AnimatePresence, Variants, motion } from 'framer-motion'
-
-const Text = styled(
-  motion.p,
-  cva({
-    base: {
-      fontSize: '128px',
-      textAlign: 'center',
-      position: 'absolute',
-      // removing the parents padding
-      w: 'calc(100% - 40px)',
-      zIndex: '5',
-      userSelect: 'none',
-    },
-  }),
-)
-
-const SelectedIndicator = styled(
-  motion.div,
-  cva({
-    base: {
-      position: 'absolute',
-      bottom: '0',
-      height: '2px',
-      w: 'full',
-      bg: 'purple.500',
-    },
-  }),
-)
+import { AnimatePresence, Variants } from 'framer-motion'
+import { SelectedIndicator, Text } from './styles'
 
 interface GenericTabItem {
   name: string
@@ -97,15 +68,7 @@ const AnimatedTabContent = ({
   }
 
   return (
-    <TabContent
-      position="absolute"
-      top="48px"
-      height="240px"
-      w="full"
-      key={name}
-      value={name}
-      forceMount
-    >
+    <TabContent animated key={name} value={name} forceMount>
       <AnimatePresence>
         <Text
           initial={isDefaultValue ? 'visible' : 'hidden'}
