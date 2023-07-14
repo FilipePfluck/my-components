@@ -106,12 +106,7 @@ export const AnimatedTabs = <T extends readonly GenericTabItem[]>({
   }
 
   return (
-    // @ts-ignore
-    <TabRoot
-      defaultValue="tomato"
-      value={value}
-      onValueChange={handleValueChange}
-    >
+    <TabRoot value={value} onValueChange={handleValueChange}>
       <TabList>
         {items.map(({ emoji, name }) => (
           <AnimatedTab

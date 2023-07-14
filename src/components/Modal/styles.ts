@@ -62,6 +62,16 @@ export const Content = styled(
   }),
 )
 
+export const AnimatedDialogContent = styled(
+  Dialog.Content,
+  cva({
+    base: {
+      ...centerStyles,
+      minW: 'max-content',
+    },
+  }),
+)
+
 export const Title = styled(
   Dialog.Title,
   cva({
