@@ -10,12 +10,12 @@ export const VeggiesDialogs = () => {
         [
           { itemKey: 'broccoli', size: 'lg' },
           { itemKey: 'corn', size: 'sm' },
-          { itemKey: 'potato', size: 'sm' },
+          { itemKey: 'potato', size: 'lg' },
         ],
         [
           { itemKey: 'garlic', size: 'sm' },
-          { itemKey: 'eggplant', size: 'sm' },
-          { itemKey: 'onion', size: 'lg' },
+          { itemKey: 'eggplant', size: 'lg' },
+          { itemKey: 'onion', size: 'sm' },
         ],
       ]}
     />
