@@ -2,7 +2,7 @@ import { MotionProps, motion } from 'framer-motion'
 
 import * as S from './styles'
 import { css } from '@/styled-system/css'
-import { ReactNode } from 'react'
+import { ForwardedRef, ReactNode, forwardRef } from 'react'
 
 type WithChildren<T = {}> = T & { children?: ReactNode }
 
@@ -75,7 +75,7 @@ export const AnimatedModalDescription = ({
 }
 
 interface AnimatedTriggerProps {
-  onClick: () => void
+  onClick?: () => void
   size: 'sm' | 'lg'
   data: {
     emoji: string
@@ -84,11 +84,10 @@ interface AnimatedTriggerProps {
   }
 }
 
-export const AnimatedTrigger = ({
-  data,
-  size,
-  onClick,
-}: AnimatedTriggerProps) => {
+const AnimatedTriggerComponent = (
+  { data, size, onClick }: AnimatedTriggerProps,
+  ref: ForwardedRef<HTMLButtonElement>,
+) => {
   const { emoji, id, name } = data
 
   return (
@@ -99,6 +98,7 @@ export const AnimatedTrigger = ({
       transition={{ duration: 0.15 }}
       onClick={onClick}
       layoutId={`container-${id}`}
+      ref={ref}
     >
       <motion.p
         transition={{
@@ -122,3 +122,5 @@ export const AnimatedTrigger = ({
     </motion.button>
   )
 }
+
+export const AnimatedTrigger = forwardRef(AnimatedTriggerComponent)

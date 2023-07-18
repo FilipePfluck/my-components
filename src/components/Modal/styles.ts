@@ -117,6 +117,7 @@ export const CloseButton = styled(
       alignItems: 'center',
       justifyContent: 'center',
       color: 'purple.500',
+      rounded: 'full',
     },
   }),
 )
