@@ -1,0 +1,30 @@
+export const alignItemsValues = [
+  'stretch',
+  'flex-start',
+  'flex-end',
+  'center',
+  'baseline',
+  'first baseline',
+  'last baseline',
+  'start',
+  'end',
+  'self-start',
+  'self-end',
+  'safe center',
+  'unsafe center',
+]
+
+export const justifyContentValues = [
+  'flex-start',
+  'flex-end',
+  'center',
+  'space-between',
+  'space-around',
+  'space-evenly',
+  'start',
+  'end',
+  'left',
+  'right',
+  'safe center',
+  'unsafe center',
+]

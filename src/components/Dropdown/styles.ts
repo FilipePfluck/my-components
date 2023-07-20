@@ -8,8 +8,8 @@ const contentStyles = cva({
   base: {
     bg: 'gray.50',
     rounded: 'md',
-    p: '2',
     boxShadow: 'lg',
+    p: '2',
     ...slideAnimation,
   },
   variants: {
@@ -48,24 +48,28 @@ export const Arrow = styled(
 
 const itemBaseStyles = {
   all: 'unset',
-  cursor: 'pointer',
+
   fontSize: 'xs',
-  lineHeight: '100%',
   color: 'purple.600',
-  rounded: 'sm',
+  lineHeight: '100%',
+
+  position: 'relative',
   display: 'flex',
   alignItems: 'center',
+  rounded: 'sm',
   height: '6',
   px: '1',
-  position: 'relative',
+
   transition: '0.125s',
+  cursor: 'pointer',
 
   _dataDisabled: {
-    color: 'gray.500',
+    color: 'gray.400',
     pointerEvents: 'none',
   },
 
   _dataHighlighted: {
+    outline: 'none',
     bg: 'purple.400',
     color: 'gray.50',
   },
@@ -157,23 +161,6 @@ export const RightSlot = styled(
       },
 
       '[data-disabled] &': { color: 'gray.500' },
-    },
-  }),
-)
-
-export const Trigger = styled(
-  Dropdown.Trigger,
-  cva({
-    base: {
-      fontFamily: 'inherit',
-      borderRadius: '100%',
-      height: '35px',
-      width: '35px',
-      display: 'inline-flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      color: 'purple.500',
-      backgroundColor: 'white',
     },
   }),
 )

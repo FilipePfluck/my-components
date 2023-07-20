@@ -2,6 +2,7 @@ import * as Select from '@radix-ui/react-select'
 
 import { styled } from '@/styled-system/jsx'
 import { cva } from '@/styled-system/css'
+import { slideAnimation } from '../../../../panda/utils'
 
 export const SelectTrigger = styled(
   Select.Trigger,
@@ -43,28 +44,19 @@ export const selectContentClassname = cva({
   base: {
     position: 'relative',
     overflow: 'hidden',
+
     bg: 'gray.50',
     rounded: 'md',
-    boxShadow: 'md',
+    boxShadow: 'lg',
     py: '6',
+
     w: 'var(--radix-select-trigger-width)',
     h: 'calc(var(--radix-select-content-available-height) + 48px)',
     // 256px (viewport max height) + 48px (content py)
     maxH: '304px',
     scrollBehavior: 'smooth',
 
-    _dataOpen: {
-      _top: { animation: 'slideDownAndFadeIn' },
-      _right: { animation: 'slideLeftAndFadeIn' },
-      _bottom: { animation: 'slideUpAndFadeIn' },
-      _left: { animation: 'slideRightAndFadeIn' },
-    },
-    _dataClosed: {
-      _top: { animation: 'slideDownAndFadeOut' },
-      _right: { animation: 'slideLeftAndFadeOut' },
-      _bottom: { animation: 'slideUpAndFadeOut' },
-      _left: { animation: 'slideRightAndFadeOut' },
-    },
+    ...slideAnimation,
   },
 })
 
@@ -85,14 +77,17 @@ export const SelectItem = styled(
   Select.Item,
   cva({
     base: {
-      fontSize: 'sm',
-      color: 'purple.700',
-      rounded: 'sm',
+      fontSize: 'xs',
+      color: 'purple.600',
+      lineHeight: '100%',
+
+      position: 'relative',
       display: 'flex',
       alignItems: 'center',
+      rounded: 'sm',
       height: '6',
       p: '0px 32px 0 24px',
-      position: 'relative',
+
       userSelect: 'none',
       transition: '0.125s',
       cursor: 'pointer',
@@ -104,7 +99,7 @@ export const SelectItem = styled(
 
       _dataHighlighted: {
         outline: 'none',
-        bg: 'purple.500',
+        bg: 'purple.400',
         color: 'gray.50',
       },
     },
@@ -128,7 +123,7 @@ export const SelectSeparator = styled(
   cva({
     base: {
       h: '1px',
-      bg: 'purple.500',
+      bg: 'purple.200',
       m: '3',
     },
   }),

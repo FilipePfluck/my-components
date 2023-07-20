@@ -7,6 +7,7 @@ import { DropdownItem } from '../parts/Item'
 import { DropdownSub } from '../parts/Submenu'
 import { DropdownCheckboxItem } from '../parts/CheckboxItem'
 import { DropdownRadioItem } from '../parts/RadioItem'
+import { IconButton } from '@/components/IconButton'
 
 export const RadixExampleDropdown = () => {
   const [bookmarksChecked, setBookmarksChecked] = useState(false)
@@ -15,9 +16,11 @@ export const RadixExampleDropdown = () => {
 
   return (
     <Dropdown.Root>
-      <S.Trigger aria-label="Open dropdown">
-        <MdMenu />
-      </S.Trigger>
+      <Dropdown.Trigger asChild>
+        <IconButton aria-label="Open dropdown">
+          <MdMenu />
+        </IconButton>
+      </Dropdown.Trigger>
       <Dropdown.Portal>
         <S.Content width="md" itemPaddingLeft="md" sideOffset={8}>
           <S.Arrow />
