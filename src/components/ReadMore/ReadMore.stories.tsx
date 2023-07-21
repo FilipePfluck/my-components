@@ -14,7 +14,7 @@ export const LongText: Story = {
     <ReadMore
       id="long-text"
       amountOfWords={25}
-      maxW="600px"
+      maxW="640px"
       text="One, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Eleven, Twelve, Thirteen, Fourteen, Fifteen, Sixteen, Seventeen, Eighteen, Nineteen, Twenty, Twenty-one, Twenty-two, Twenty-three, Twenty-four, Twenty-five, Twenty-six, Twenty-seven, Twenty-eight, Twenty-nine, Thirty, Thirty-one, Thirty-two, Thirty-three, Thirty-four, Thirty-five, Thirty-six, Thirty-seven, Thirty-eight, Thirty-nine, Forty, Forty-one, Forty-two, Forty-three, Forty-four, Forty-five, Forty-six, Forty-seven, Forty-eight, Forty-nine, Fifty."
     />
   ),
