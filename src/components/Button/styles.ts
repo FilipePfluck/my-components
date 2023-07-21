@@ -6,9 +6,8 @@ export const ButtonContainer = styled(
   cva({
     base: {
       display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      borderRadius: 'md',
+      center: 'flex',
+      rounded: 'md',
       borderWidth: '1px',
       borderStyle: 'solid',
       transition: 'background 0.2s',

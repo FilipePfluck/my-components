@@ -8,7 +8,7 @@ export const Root = styled(
     base: {
       position: 'relative',
       display: 'flex',
-      alignItems: 'center',
+      align: 'center',
       userSelect: 'none',
       touchAction: 'none',
       width: '60',

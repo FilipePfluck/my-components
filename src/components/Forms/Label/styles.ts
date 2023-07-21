@@ -4,7 +4,7 @@ export const labelContainerRecipe = defineRecipe({
   name: 'labelContainer',
   base: {
     display: 'flex',
-    alignItems: 'center',
+    align: 'center',
     gap: '2',
     color: 'gray.700',
     fontSize: '14px',

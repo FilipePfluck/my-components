@@ -1,6 +1,6 @@
 import * as Dialog from '@radix-ui/react-dialog'
 import { styled } from '@/styled-system/jsx'
-import { cva } from '@/styled-system/css'
+import { css, cva } from '@/styled-system/css'
 
 export const Overlay = styled(
   Dialog.Overlay,
@@ -19,12 +19,10 @@ export const Overlay = styled(
   }),
 )
 
-export const centerStyles = {
+export const centerStyles = css.raw({
   position: 'fixed',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-} as const
+  center: 'absolute',
+})
 
 export const dialogContentStyles = {
   display: 'flex',
@@ -114,8 +112,8 @@ export const CloseButton = styled(
       h: '6',
       w: '6',
       display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
+      align: 'center',
+      justify: 'center',
       color: 'purple.500',
       rounded: 'full',
     },

@@ -37,8 +37,7 @@ export const Trigger = styled(
       h: '12',
       display: 'flex',
       flex: '1',
-      alignItems: 'center',
-      justifyContent: 'center',
+      center: 'flex',
       color: 'gray.800',
       userSelect: 'none',
       position: 'relative',
@@ -58,8 +57,8 @@ export const Trigger = styled(
         color: 'purple.500',
       },
       // I only removed this because there is another indicator of focus
+      // (the purple line)
       outline: 'none',
-      // ring: '2px',
     },
     variants: {
       activeIndicator: {
@@ -68,6 +67,8 @@ export const Trigger = styled(
             boxShadow: 'inset 0 -1px 0 0 currentColor, 0 1px 0 0 currentColor',
           },
         },
+        // the none variant should only be used
+        // if you implement another indicator of your own
         none: {},
       },
     },
@@ -81,7 +82,7 @@ export const Content = styled(
   Tabs.Content,
   cva({
     base: {
-      flexDirection: 'column',
+      flexDir: 'column',
       flexGrow: '1',
       p: '5',
       bg: 'gray.50',

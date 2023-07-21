@@ -12,7 +12,7 @@ export const InputContainer = styled(
       transition: '0.2s',
 
       display: 'flex',
-      alignItems: 'center',
+      align: 'center',
       gap: '2',
 
       borderWidth: '2px',

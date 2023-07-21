@@ -53,15 +53,14 @@ export const Trigger = styled(
     base: {
       all: 'unset',
       cursor: 'pointer',
-      fontFamily: 'inherit',
       bg: 'gray.50',
       p: '4',
       w: 'full',
       h: '12',
       flex: 1,
       display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'space-between',
+      align: 'center',
+      justify: 'space-between',
       color: 'gray.900',
       fontWeight: 'bold',
       boxShadow: 'md',
@@ -74,7 +73,7 @@ export const Content = styled(
   cva({
     base: {
       color: 'gray.800',
-      backgroundColor: 'gray.100',
+      bg: 'gray.100',
       overflow: 'hidden',
 
       '&> div': {

@@ -20,7 +20,7 @@ export const animatedTriggerStyles = cva({
     boxShadow: 'lg',
     h: '20',
     display: 'flex',
-    alignItems: 'center',
+    align: 'center',
   },
   variants: {
     size: {

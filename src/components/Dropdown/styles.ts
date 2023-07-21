@@ -1,17 +1,21 @@
 import * as Dropdown from '@radix-ui/react-dropdown-menu'
 
 import { styled } from '@/styled-system/jsx'
-import { cva } from '@/styled-system/css'
-import { slideAnimation } from '../../../panda/utils'
+import { css, cva } from '@/styled-system/css'
+import {
+  menuContentBaseStyles,
+  menuItemBaseStyles,
+  slideAnimation,
+} from '../../../panda/utils'
 
 const contentStyles = cva({
   base: {
-    bg: 'gray.50',
-    rounded: 'md',
-    boxShadow: 'lg',
-    p: '2',
+    px: '1',
+    py: '2',
+    ...menuContentBaseStyles,
     ...slideAnimation,
   },
+
   variants: {
     width: {
       auto: {},
@@ -46,34 +50,11 @@ export const Arrow = styled(
   }),
 )
 
-const itemBaseStyles = {
+const itemBaseStyles = css.raw({
   all: 'unset',
-
-  fontSize: 'xs',
-  color: 'purple.600',
-  lineHeight: '100%',
-
-  position: 'relative',
-  display: 'flex',
-  alignItems: 'center',
-  rounded: 'sm',
-  height: '6',
   px: '1',
-
-  transition: '0.125s',
-  cursor: 'pointer',
-
-  _dataDisabled: {
-    color: 'gray.400',
-    pointerEvents: 'none',
-  },
-
-  _dataHighlighted: {
-    outline: 'none',
-    bg: 'purple.400',
-    color: 'gray.50',
-  },
-} as const
+  ...menuItemBaseStyles,
+})
 
 export const Item = styled(
   Dropdown.Item,

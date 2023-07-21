@@ -110,7 +110,7 @@ export const utilities = {
         switch (value) {
           case 'flex':
             return {
-              alignIems: 'center',
+              alignItems: 'center',
               justifyContent: 'center',
             }
           case 'absolute':

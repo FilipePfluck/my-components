@@ -33,7 +33,7 @@
     "react-icons": "^4.10.1"
   },
   "devDependencies": {
-    "@pandacss/dev": "^0.4.0",
+    "@pandacss/dev": "dev",
     "@rocketseat/eslint-config": "^1.2.0",
     "@storybook/addon-a11y": "^7.0.24",
     "@storybook/addon-essentials": "^7.0.23",

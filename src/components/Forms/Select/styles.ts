@@ -2,15 +2,19 @@ import * as Select from '@radix-ui/react-select'
 
 import { styled } from '@/styled-system/jsx'
 import { cva } from '@/styled-system/css'
-import { slideAnimation } from '../../../../panda/utils'
+import {
+  menuContentBaseStyles,
+  menuItemBaseStyles,
+  slideAnimation,
+} from '../../../../panda/utils'
 
 export const SelectTrigger = styled(
   Select.Trigger,
   cva({
     base: {
       display: 'inline-flex',
-      alignItems: 'center',
-      justifyContent: 'space-between',
+      align: 'center',
+      justify: 'space-between',
       rounded: 'md',
       px: '4',
       py: '2',
@@ -40,28 +44,6 @@ export const SelectTrigger = styled(
   }),
 )
 
-export const selectContentClassname = cva({
-  base: {
-    position: 'relative',
-    overflow: 'hidden',
-
-    bg: 'gray.50',
-    rounded: 'md',
-    boxShadow: 'lg',
-    py: '6',
-
-    w: 'var(--radix-select-trigger-width)',
-    h: 'calc(var(--radix-select-content-available-height) + 48px)',
-    // 256px (viewport max height) + 48px (content py)
-    maxH: '304px',
-    scrollBehavior: 'smooth',
-
-    ...slideAnimation,
-  },
-})
-
-export const SelectContent = styled(Select.Content, selectContentClassname)
-
 export const SelectViewport = styled(
   Select.Viewport,
   cva({
@@ -73,35 +55,30 @@ export const SelectViewport = styled(
   }),
 )
 
+export const selectContentClassname = cva({
+  base: {
+    position: 'relative',
+    overflow: 'hidden',
+
+    w: 'var(--radix-select-trigger-width)',
+    h: 'calc(var(--radix-select-content-available-height) + 48px)',
+    // 256px (viewport max height) + 48px (content py)
+    maxH: '304px',
+    py: '6',
+
+    ...menuContentBaseStyles,
+    ...slideAnimation,
+  },
+})
+
+export const SelectContent = styled(Select.Content, selectContentClassname)
+
 export const SelectItem = styled(
   Select.Item,
   cva({
     base: {
-      fontSize: 'xs',
-      color: 'purple.600',
-      lineHeight: '100%',
-
-      position: 'relative',
-      display: 'flex',
-      alignItems: 'center',
-      rounded: 'sm',
-      height: '6',
+      ...menuItemBaseStyles,
       p: '0px 32px 0 24px',
-
-      userSelect: 'none',
-      transition: '0.125s',
-      cursor: 'pointer',
-
-      _dataDisabled: {
-        color: 'purple.400',
-        pointerEvents: 'none',
-      },
-
-      _dataHighlighted: {
-        outline: 'none',
-        bg: 'purple.400',
-        color: 'gray.50',
-      },
     },
   }),
 )

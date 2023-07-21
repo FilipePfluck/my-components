@@ -1,7 +1,7 @@
 import * as Popover from '@radix-ui/react-popover'
 
 import { cva } from '@/styled-system/css'
-import { slideAnimation } from '../../../panda/utils'
+import { menuContentBaseStyles, slideAnimation } from '../../../panda/utils'
 import { styled } from '@/styled-system/jsx'
 
 export const Content = styled(
@@ -11,13 +11,10 @@ export const Content = styled(
       display: 'flex',
       flexDirection: 'column',
       gap: '4',
-
-      bg: 'gray.50',
-      rounded: 'lg',
-      boxShadow: 'md',
       p: '6',
       maxH: '85vh',
 
+      ...menuContentBaseStyles,
       ...slideAnimation,
     },
     variants: {
@@ -54,27 +51,9 @@ export const CloseButton = styled(
       h: '6',
       w: '6',
       display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
+      center: 'flex',
       color: 'purple.500',
       rounded: 'full',
-    },
-  }),
-)
-
-export const Trigger = styled(
-  Popover.Trigger,
-  cva({
-    base: {
-      fontFamily: 'inherit',
-      borderRadius: '100%',
-      height: '35px',
-      width: '35px',
-      display: 'inline-flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      color: 'purple.500',
-      backgroundColor: 'white',
     },
   }),
 )

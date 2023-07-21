@@ -11,13 +11,20 @@ import {
   MdPushPin,
 } from 'react-icons/md'
 import { DropdownItem } from '../parts/Item'
+import { IconButton } from '@/components/IconButton'
 
 export const MessageExampleDropdown = () => {
   return (
     <Dropdown.Root>
-      <S.Trigger data-testid="MessageDropdownTrigger" aria-label="More options">
-        <MdMoreVert />
-      </S.Trigger>
+      <Dropdown.Trigger
+        data-testid="MessageDropdownTrigger"
+        aria-label="More options"
+        asChild
+      >
+        <IconButton>
+          <MdMoreVert />
+        </IconButton>
+      </Dropdown.Trigger>
       <Dropdown.Portal>
         <S.Content data-testid="MessageDropdownMenuContent" sideOffset={8}>
           <S.Arrow />

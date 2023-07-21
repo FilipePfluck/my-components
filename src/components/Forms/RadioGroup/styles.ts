@@ -18,8 +18,7 @@ export const RadioItem = styled(
   cva({
     base: {
       display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
+      center: 'flex',
       bg: { base: 'gray.50', _hover: 'purple.50' },
       w: '6',
       h: '6',

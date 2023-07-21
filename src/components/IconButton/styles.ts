@@ -10,10 +10,9 @@ export const Container = styled(
       height: '8',
       width: '8',
       display: 'inline-flex',
-      alignItems: 'center',
-      justifyContent: 'center',
+      center: 'flex',
       color: 'purple.500',
-      backgroundColor: 'gray.50',
+      bg: 'gray.50',
     },
   }),
 )
